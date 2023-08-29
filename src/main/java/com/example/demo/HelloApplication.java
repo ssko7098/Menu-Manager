@@ -1,4 +1,4 @@
-package com.example.demo1;
+package com.example.demo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 667, 445);
         stage.resizableProperty();
-        stage.setTitle("Hello!");
+        stage.setTitle("Menu Manager");
         stage.setScene(scene);
         stage.show();
     }

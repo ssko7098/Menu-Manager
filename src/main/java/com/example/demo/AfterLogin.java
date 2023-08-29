@@ -1,4 +1,4 @@
-package com.example.demo1;
+package com.example.demo;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;

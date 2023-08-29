@@ -25,8 +25,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-  mainModule = 'com.example.demo1'
-  mainClass = 'com.example.demo1.HelloApplication'
+//  mainModule = 'com.example.demo1'
+  mainClass = 'com.example.demo.HelloApplication'
 }
 
 javafx {
@@ -38,6 +38,8 @@ dependencies {
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+  implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 }
 
 test {
