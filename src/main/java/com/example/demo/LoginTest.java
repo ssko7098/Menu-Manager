@@ -7,6 +7,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import org.json.simple.JSONArray;
@@ -57,6 +58,11 @@ public class LoginTest {
             }
         }
         return false;
+    }
+
+    public void goToRegister() throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("SignUp.fxml");
     }
 
 }

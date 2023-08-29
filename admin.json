@@ -1,11 +1,1 @@
-
-[
-  {
-    "username": "sebskontos",
-    "password": "1234"
-  },
-  {
-    "username": "ethan",
-    "password": "test"
-  }
-]
+[{"password":"1234","username":"sebskontos"},{"password":"1234","username":"TEST"}]
