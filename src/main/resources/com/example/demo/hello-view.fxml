@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="667.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginTest">
   <children>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddb33e" height="449.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="670.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddb33e" height="449.0" layoutY="-4.0" onMouseClicked="#goToRegister" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="670.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#004d44" height="524.0" layoutX="-133.0" layoutY="-65.0" rotate="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="452.0" />
     <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="198.0" layoutX="382.0" layoutY="133.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="10.0" width="223.0">
       <effect>
@@ -52,7 +52,7 @@
         </Shadow>
       </effect>
     </Line>
-    <Text fill="#ddb33e" layoutX="401.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOT A MEMBER?" wrappingWidth="106.95442199707031">
+    <Text fill="#ddb33e" layoutX="401.0" layoutY="160.0" onMouseClicked="#goToRegister" strokeType="OUTSIDE" strokeWidth="0.0" text="NOT A MEMBER?" wrappingWidth="106.95442199707031">
       <font>
         <Font name="Microsoft Sans Serif" size="11.0" />
       </font>
