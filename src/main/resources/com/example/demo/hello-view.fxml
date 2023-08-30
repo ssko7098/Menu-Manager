@@ -4,69 +4,303 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="667.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginTest">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginTest">
   <children>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddb33e" height="449.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="670.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#004d44" height="524.0" layoutX="-133.0" layoutY="-65.0" rotate="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="452.0" />
-    <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="198.0" layoutX="382.0" layoutY="133.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="10.0" width="223.0">
-      <effect>
-        <DropShadow height="30.0" radius="14.5" width="30.0">
-          <color>
-            <Color red="0.5526315569877625" green="0.5475146174430847" blue="0.5475146174430847" />
-          </color>
-        </DropShadow>
-      </effect>
-    </Rectangle>
-    <TextField fx:id="username" layoutX="401.0" layoutY="189.0" prefHeight="30.0" prefWidth="180.0" promptText="Username" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #D6D6D6;">
+    <Rectangle fill="WHITE" height="700.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0" />
+    <TextField fx:id="username" layoutX="788.0" layoutY="322.0" prefHeight="30.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: white;">
       <font>
-        <Font name="Microsoft Sans Serif" size="12.0" />
+        <Font name="Microsoft Sans Serif" size="14.0" />
       </font>
     </TextField>
-    <PasswordField fx:id="password" layoutX="401.0" layoutY="224.0" prefHeight="30.0" prefWidth="180.0" promptText="Password" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #D6D6D6;">
+      <TextField fx:id="passwordText" layoutX="788.0" layoutY="375.0" prefHeight="30.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: white;">
+         <font>
+            <Font name="Microsoft Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+    <PasswordField fx:id="password" layoutX="788.0" layoutY="375.0" prefHeight="30.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: white;">
       <font>
-        <Font name="Microsoft Sans Serif" size="12.0" />
+        <Font name="Microsoft Sans Serif" size="14.0" />
       </font>
     </PasswordField>
-    <Button fx:id="button" layoutX="401.0" layoutY="273.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #004d44; -fx-background-radius: 0;" text="SIGN IN" textFill="WHITE">
+      <Rectangle arcHeight="10.0" arcWidth="10.0" height="71.0" layoutX="755.0" layoutY="427.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="355.0">
+         <fill>
+            <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27914679050445557" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <DropShadow height="30.0" radius="14.5" width="30.0">
+               <color>
+                  <Color red="0.20000000298023224" blue="1.0" opacity="0.30975142121315" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Rectangle>
+    <Button fx:id="button" layoutX="755.0" layoutY="427.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="71.0" prefWidth="355.0" style="-fx-region-background: 0;" text="SIGN IN" textFill="WHITE">
       <font>
-        <Font name="Microsoft Sans Serif" size="12.0" />
+        <Font name="Microsoft Sans Serif" size="16.0" />
       </font>
     </Button>
-    <Line endX="180.0" endY="12.380752563476562" layoutX="401.0" layoutY="164.0" startY="12.380752563476562" stroke="#dddddd">
-      <effect>
-        <Shadow height="0.0" radius="2.0" width="10.0">
-          <color>
-            <Color red="0.8289473652839661" green="0.8289473652839661" blue="0.8289473652839661" />
-          </color>
-        </Shadow>
-      </effect>
-    </Line>
-    <Text fill="#ddb33e" layoutX="401.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOT A MEMBER?" wrappingWidth="106.95442199707031">
-      <font>
-        <Font name="Microsoft Sans Serif" size="11.0" />
-      </font>
-    </Text>
-    <Text fill="#949494" layoutX="476.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="need help?" textAlignment="RIGHT" wrappingWidth="106.95442199707031">
-      <font>
-        <Font name="Microsoft Sans Serif" size="9.0" />
-      </font>
-    </Text>
-    <ImageView fitHeight="306.0" fitWidth="267.0" layoutX="41.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@pngwing.com.png" />
-      </image>
-    </ImageView>
-      <Label fx:id="wrongLogin" layoutX="401.0" layoutY="313.0" prefHeight="17.0" prefWidth="180.0" textFill="RED" />
+      <Label fx:id="wrongLogin" layoutX="757.0" layoutY="287.0" prefHeight="17.0" prefWidth="355.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Rectangle height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0">
+         <fill>
+            <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27914679050445557" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Polygon fill="#ebebeb1a" layoutX="437.0" layoutY="286.0" points="-437.0, 414.0, -201.5, 273.5, -437.0, -10.5" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Polygon fill="#ebebeb1a" layoutX="582.0" layoutY="74.0" points="-445.5, -74.0, -208.5, 216.5, 18.0, -74.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Circle fill="WHITE" layoutX="120.0" layoutY="382.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <effect>
+            <DropShadow height="30.0" radius="14.5" width="30.0">
+               <color>
+                  <Color red="0.5529412031173706" green="0.5490196347236633" blue="0.5490196347236633" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Circle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="132.0" layoutY="362.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="399.0" />
+      <Text layoutX="151.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create dynamic dashboard available to admins and users" wrappingWidth="378.701171875">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="99.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/com/example/demo/loginImages/SignUpNew.png" />
+         </image>
+      </ImageView>
+      <Circle fill="WHITE" layoutX="120.0" layoutY="482.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <effect>
+            <DropShadow height="30.0" radius="14.5" width="30.0">
+               <color>
+                  <Color red="0.5529412031173706" green="0.5490196347236633" blue="0.5490196347236633" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Circle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="132.0" layoutY="462.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="399.0" />
+      <Text layoutX="151.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Access order history through customer order numbers" wrappingWidth="384.8984375">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="99.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/com/example/demo/loginImages/OrderHistory.png" />
+         </image>
+      </ImageView>
+      <Circle fill="WHITE" layoutX="120.0" layoutY="582.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+         <effect>
+            <DropShadow height="30.0" radius="14.5" width="30.0">
+               <color>
+                  <Color red="0.5529412031173706" green="0.5490196347236633" blue="0.5490196347236633" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Circle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="131.0" layoutY="562.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="399.0" />
+      <Text layoutX="151.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order restaurant specfic menu items with ease" wrappingWidth="384.8984375">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="98.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/com/example/demo/loginImages/OrderMenuNew.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="713.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" style="letter-spacing: 10;" text="ITS ALL EATS" textAlignment="CENTER" wrappingWidth="443.8984375">
+         <font>
+            <Font name="Futura Medium" size="47.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <ImageView fitHeight="118.0" fitWidth="107.0" layoutX="881.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/com/example/demo/loginImages/newLogo.png" />
+         </image>
+      </ImageView>
+      <Line endX="303.5" layoutX="815.0" layoutY="267.0" startX="-67.5" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="285.5" layoutX="825.0" layoutY="273.0" startX="-68.5" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="285.5" endY="12.3807373046875" layoutX="825.0" layoutY="392.0" startX="-68.5" startY="12.3807373046875" stroke="#a4a4a4" strokeWidth="0.5">
+         <effect>
+            <Shadow height="5.0" radius="0.75" width="0.0">
+               <color>
+                  <Color red="0.5657894611358643" green="0.5579313039779663" blue="0.5579313039779663" />
+               </color>
+            </Shadow>
+         </effect>
+      </Line>
+      <Line endX="285.5" endY="12.3807373046875" layoutX="825.0" layoutY="339.0" startX="-68.5" startY="12.3807373046875" stroke="#a4a4a4" strokeWidth="0.5">
+         <effect>
+            <Shadow height="5.0" radius="0.75" width="0.0">
+               <color>
+                  <Color red="0.5657894611358643" green="0.5579313039779663" blue="0.5579313039779663" />
+               </color>
+            </Shadow>
+         </effect>
+      </Line>
+      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="763.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/com/example/demo/loginImages/userLogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="763.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/com/example/demo/loginImages/passLogo.png" />
+         </image>
+      </ImageView>
+      <Line endX="233.8333740234375" layoutX="870.0" layoutY="510.0" startX="-108.83331298828125" strokeWidth="2.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+         <effect>
+            <BoxBlur height="14.05" iterations="3" width="1.98" />
+         </effect>
+      </Line>
+      <ImageView fx:id="showPassword" fitHeight="21.0" fitWidth="23.0" layoutX="1088.0" layoutY="379.0" onMousePressed="#changeVisibility" onMouseReleased="#changeVisibilityImage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/com/example/demo/loginImages/visible.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.7" />
+         </effect>
+      </ImageView>
   </children>
 </AnchorPane>

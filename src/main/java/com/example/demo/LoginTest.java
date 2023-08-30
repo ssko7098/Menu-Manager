@@ -6,15 +6,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class LoginTest {
+
+    public LoginTest() throws FileNotFoundException {
+    }
 
     public void userLogin() throws IOException, ParseException {
         test();
@@ -30,11 +36,24 @@ public class LoginTest {
     private TextField username;
 
     @FXML
+    private TextField passwordText;
+
+    @FXML
     private PasswordField password;
+
+    @FXML
+    private ImageView showPassword;
+
+    Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
+    Image showImage = new Image("/com/example/demo/loginImages/visible.png");
 
     public void test() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();
-        if (checkAdmin(username.getText().toString(), password.getText().toString())) {
+        if (username.getText().isEmpty() && password.getText().isEmpty()){
+            wrongLogin.setText("Please enter your username and password");
+        }
+
+        else if (checkAdmin(username.getText().toString(), password.getText().toString())) {
             wrongLogin.setText("Success!");
 
             m.changeScene("afterLogin.fxml");
@@ -57,6 +76,26 @@ public class LoginTest {
             }
         }
         return false;
+    }
+
+    public void changeVisibility(){
+
+        showPassword.setImage(showImage);
+        passwordText.setText(password.getText());
+        passwordText.setVisible(true);
+        password.setVisible(false);
+
+
+        //System.out.println("image clicked");
+    }
+    public void changeVisibilityImage(){
+
+        showPassword.setImage(hideImage);
+        password.setText(passwordText.getText());
+        passwordText.setVisible(false);
+        password.setVisible(true);
+        //System.out.println("image released");
+
     }
 
 }

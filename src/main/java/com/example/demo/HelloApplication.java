@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     public void start(Stage primaryStage) throws IOException {
         stage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 667, 445);
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.resizableProperty();
         stage.setTitle("Menu Manager");
         stage.setScene(scene);
