@@ -21,8 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="667.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginTest" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginTest">
   <children>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ddb33e" height="449.0" layoutY="-4.0" onMouseClicked="#goToRegister" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="670.0" />
     <Line endX="180.0" endY="12.380752563476562" layoutX="401.0" layoutY="164.0" startY="12.380752563476562" stroke="#dddddd">
@@ -39,7 +38,6 @@
         <Font name="Microsoft Sans Serif" size="11.0" />
       </font>
     </Text>
-
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#004d44" height="524.0" layoutX="-133.0" layoutY="-65.0" rotate="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="452.0" />
     <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="198.0" layoutX="382.0" layoutY="133.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="10.0" width="223.0">
         <effect>
@@ -51,21 +49,6 @@
         </effect>
     </Rectangle>
     <Rectangle fill="WHITE" height="700.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1200.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0" />
-    <TextField fx:id="username" layoutX="788.0" layoutY="322.0" prefHeight="30.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: white;">
-        <font>
-            <Font name="Microsoft Sans Serif" size="14.0" />
-        </font>
-    </TextField>
-    <TextField fx:id="passwordText" layoutX="788.0" layoutY="375.0" prefHeight="30.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: white;">
-        <font>
-            <Font name="Microsoft Sans Serif" size="14.0" />
-        </font>
-    </TextField>
-    <PasswordField fx:id="password" layoutX="788.0" layoutY="375.0" prefHeight="30.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: white;">
-        <font>
-            <Font name="Microsoft Sans Serif" size="14.0" />
-        </font>
-    </PasswordField>
     <Rectangle arcHeight="10.0" arcWidth="10.0" height="71.0" layoutX="755.0" layoutY="427.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="355.0">
         <fill>
             <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
@@ -96,12 +79,6 @@
             </DropShadow>
         </effect>
     </Rectangle>
-    <Button fx:id="button" layoutX="755.0" layoutY="427.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="71.0" prefWidth="355.0" style="-fx-region-background: 0;" text="SIGN IN" textFill="WHITE">
-        <font>
-            <Font name="Microsoft Sans Serif" size="16.0" />
-        </font>
-    </Button>
-
     <Line endX="180.0" endY="12.380752563476562" layoutX="401.0" layoutY="164.0" startY="12.380752563476562" stroke="#dddddd">
         <effect>
             <Shadow height="0.0" radius="2.0" width="10.0">
@@ -163,7 +140,7 @@
     </Text>
     <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="99.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@/com/example/demo/loginImages/SignUpNew.png" />
+            <Image url="@loginImages/SignUpNew.png" />
         </image>
     </ImageView>
     <Circle fill="WHITE" layoutX="120.0" layoutY="482.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
@@ -183,7 +160,7 @@
     </Text>
     <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="99.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@/com/example/demo/loginImages/OrderHistory.png" />
+            <Image url="@loginImages/OrderHistory.png" />
         </image>
     </ImageView>
     <Circle fill="WHITE" layoutX="120.0" layoutY="582.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
@@ -203,7 +180,7 @@
     </Text>
     <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="98.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@/com/example/demo/loginImages/OrderMenuNew.png" />
+            <Image url="@loginImages/OrderMenuNew.png" />
         </image>
     </ImageView>
     <Text layoutX="713.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" style="letter-spacing: 10;" text="ITS ALL EATS" textAlignment="CENTER" wrappingWidth="443.8984375">
@@ -234,7 +211,7 @@
     </Text>
     <ImageView fitHeight="118.0" fitWidth="107.0" layoutX="881.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@/com/example/demo/loginImages/newLogo.png" />
+            <Image url="@loginImages/newLogo.png" />
         </image>
     </ImageView>
     <Line endX="303.5" layoutX="815.0" layoutY="267.0" startX="-67.5" strokeWidth="3.0">
@@ -283,6 +260,20 @@
             </LinearGradient>
         </stroke>
     </Line>
+   <TextField fx:id="username" layoutX="788.0" layoutY="322.0" prefHeight="30.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: white; -fx-border-color: white;">
+      <font>
+         <Font name="Microsoft Sans Serif" size="14.0" />
+      </font></TextField>
+   <TextField fx:id="passwordText" layoutX="788.0" layoutY="374.0" prefHeight="30.0" prefWidth="322.0" style="-fx-background-color: White; -fx-border-color: white;">
+      <font>
+         <Font name="Microsoft Sans Serif" size="14.0" />
+      </font>
+   </TextField>
+   <PasswordField fx:id="password" layoutX="790.0" layoutY="375.0" prefHeight="30.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: white; -fx-border-color: white;">
+      <font>
+         <Font name="Microsoft Sans Serif" size="14.0" />
+      </font>
+   </PasswordField>
     <Line endX="285.5" endY="12.3807373046875" layoutX="825.0" layoutY="392.0" startX="-68.5" startY="12.3807373046875" stroke="#a4a4a4" strokeWidth="0.5">
         <effect>
             <Shadow height="5.0" radius="0.75" width="0.0">
@@ -303,12 +294,12 @@
     </Line>
     <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="763.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@/com/example/demo/loginImages/userLogo.png" />
+            <Image url="@loginImages/userLogo.png" />
         </image>
     </ImageView>
     <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="763.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@/com/example/demo/loginImages/passLogo.png" />
+            <Image url="@loginImages/passLogo.png" />
         </image>
     </ImageView>
     <Line endX="233.8333740234375" layoutX="870.0" layoutY="510.0" startX="-108.83331298828125" strokeWidth="2.0">
@@ -339,10 +330,15 @@
     </Line>
     <ImageView fx:id="showPassword" fitHeight="21.0" fitWidth="23.0" layoutX="1088.0" layoutY="379.0" onMousePressed="#changeVisibility" onMouseReleased="#changeVisibilityImage" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@/com/example/demo/loginImages/visible.png" />
+            <Image url="@loginImages/hide.png" />
         </image>
         <effect>
             <ColorAdjust brightness="0.7" />
         </effect>
     </ImageView>
+   <Button fx:id="button" layoutX="755.0" layoutY="427.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="71.0" prefWidth="355.0" style="-fx-region-background: 0;" text="SIGN IN" textFill="WHITE">
+      <font>
+         <Font name="Microsoft Sans Serif" size="16.0" />
+      </font>
+   </Button>
 </AnchorPane>
