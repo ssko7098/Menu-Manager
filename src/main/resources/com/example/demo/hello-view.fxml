@@ -94,10 +94,6 @@
             <Font name="Microsoft Sans Serif" size="9.0" />
         </font>
     </Text>
-    <Label fx:id="wrongLogin" layoutX="757.0" layoutY="287.0" prefHeight="17.0" prefWidth="355.0" textFill="RED">
-        <font>
-            <Font size="14.0" />
-        </font></Label>
     <Rectangle height="700.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0">
         <fill>
             <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
@@ -346,4 +342,8 @@
          <Font name="Futura Medium" size="14.0" />
       </font>
    </Label>
+    <Label fx:id="wrongLogin" alignment="CENTER" contentDisplay="CENTER" layoutX="757.0" layoutY="287.0" prefHeight="17.0" prefWidth="355.0" textAlignment="CENTER" textFill="RED">
+        <font>
+            <Font size="14.0" />
+        </font></Label>
 </AnchorPane>

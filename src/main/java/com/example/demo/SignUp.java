@@ -33,6 +33,9 @@ public class SignUp {
     @FXML
     private TextField passwordText;
 
+    @FXML
+    private Label alreadyExists;
+
     Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
     Image showImage = new Image("/com/example/demo/loginImages/visible.png");
 
@@ -42,6 +45,12 @@ public class SignUp {
         JSONArray admins = (JSONArray) parser.parse(new FileReader("admin.json"));
 
         JSONObject newAdmin = new JSONObject();
+
+        if (checkAdmin(username.getText().toString())) {
+            alreadyExists.setText("This user already exists");
+            return;
+        }
+
         newAdmin.put("username", username.getText().toString());
         newAdmin.put("password", password.getText().toString());
 
@@ -52,6 +61,25 @@ public class SignUp {
         file.flush();
         file.close();
 
+        m.changeScene("hello-view.fxml");
+    }
+
+    public boolean checkAdmin(String username) throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        JSONArray admins = (JSONArray) parser.parse(new FileReader("admin.json"));
+
+        for (int i=0; i<admins.size(); i++) {
+            JSONObject admin = (JSONObject) admins.get(i);
+
+            if (admin.get("username").equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void back() throws IOException {
+        HelloApplication m = new HelloApplication();
         m.changeScene("hello-view.fxml");
     }
 
