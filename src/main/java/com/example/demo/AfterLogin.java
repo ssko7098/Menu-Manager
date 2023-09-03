@@ -17,4 +17,9 @@ public class AfterLogin {
         m.changeScene("hello-view.fxml");
     }
 
+    public void viewMenu(ActionEvent event) throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("menu.fxml");
+    }
+
 }

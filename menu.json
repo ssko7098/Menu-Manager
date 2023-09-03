@@ -1,0 +1,18 @@
+[
+  {
+    "item": "Burger",
+    "price": "10.00"
+  },
+  {
+    "item": "Marguerita Pizza",
+    "price": "12.00"
+  },
+  {
+    "item": "Pasta Carbonara",
+    "price": "13.00"
+  },
+  {
+    "item": "French Fries",
+    "price": "5.00"
+  }
+]
