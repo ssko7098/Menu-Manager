@@ -176,4 +176,9 @@ public class Menu implements Initializable {
 
         m.changeScene("menu.fxml");
     }
+
+    public void viewOrderHistory(ActionEvent event) throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("OrderHistory.fxml");
+    }
 }
