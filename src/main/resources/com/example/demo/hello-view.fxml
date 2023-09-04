@@ -337,7 +337,7 @@
          <Font name="Microsoft Sans Serif" size="16.0" />
       </font>
    </Button>
-   <Label layoutX="762.0" layoutY="532.0" onMouseClicked="#goToRegister" prefHeight="17.0" prefWidth="355.0" text="not a member?" textFill="#9700ff" underline="true">
+   <Label layoutX="762.0" layoutY="532.0" onMouseClicked="#goToRegister" prefHeight="17.0" prefWidth="355.0" text="not an admin?" textFill="#9700ff" underline="true">
       <font>
          <Font name="Futura Medium" size="14.0" />
       </font>
