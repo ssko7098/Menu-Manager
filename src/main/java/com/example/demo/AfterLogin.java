@@ -29,4 +29,9 @@ public class AfterLogin {
         m.changeScene("OrderHistory.fxml");
     }
 
+    public void createAdmin(ActionEvent event) throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("SignUp.fxml");
+    }
+
 }

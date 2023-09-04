@@ -181,4 +181,9 @@ public class Menu implements Initializable {
         HelloApplication m = new HelloApplication();
         m.changeScene("OrderHistory.fxml");
     }
+
+    public void createAdmin(ActionEvent event) throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("SignUp.fxml");
+    }
 }

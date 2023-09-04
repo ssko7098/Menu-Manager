@@ -152,4 +152,10 @@ public class OrderHistory implements Initializable {
     }
 
 
+    public void createAdmin(ActionEvent event) throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("SignUp.fxml");
+    }
+
+
 }
