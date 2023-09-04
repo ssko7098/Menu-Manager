@@ -80,7 +80,7 @@ public class SignUp {
 
     public void back() throws IOException {
         HelloApplication m = new HelloApplication();
-        m.changeScene("hello-view.fxml");
+        m.changeScene("afterLogin.fxml");
     }
 
     public void changeVisibility(){
