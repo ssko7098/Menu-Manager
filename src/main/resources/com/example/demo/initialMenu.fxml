@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
@@ -34,5 +35,26 @@
         </columns>
       </TableView>
       <Button layoutX="992.0" layoutY="653.0" mnemonicParsing="false" text="View Cart" />
+      <Accordion layoutX="24.0" layoutY="146.0" />
+      <Accordion layoutX="14.0" layoutY="100.0" prefHeight="558.0" prefWidth="224.0">
+        <panes>
+          <TitledPane animated="false" text="Menu">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="6.0" layoutY="41.0" text="Burgers" />
+                        <TextField layoutX="6.0" layoutY="118.0" text="Burgers" />
+                        <TextField layoutX="6.0" layoutY="195.0" text="Burgers" />
+                        <TextField layoutX="6.0" layoutY="283.0" text="Burgers" />
+                        <TextField layoutX="6.0" layoutY="366.0" text="Burgers" />
+                     </children>
+                  </AnchorPane>
+            </content>
+               <font>
+                  <Font size="36.0" />
+               </font>
+          </TitledPane>
+        </panes>
+      </Accordion>
    </children>
 </AnchorPane>
