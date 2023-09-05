@@ -3,7 +3,7 @@ package com.example.demo;
 public class Item {
 
     private double price;
-    private int quantity;
+    private double quantity;
     private String name;
     private String description;
 
@@ -36,4 +36,17 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
+    public Item(String name, String description, double price, int quantity) {
+        this.price = price;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+    }
+    public void setQuantity(int quantity) {
+
+        this.quantity = quantity;
+    }
 }
+

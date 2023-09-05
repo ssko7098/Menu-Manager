@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.InitialMenu">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="707.0" stroke="BLACK" strokeType="INSIDE" width="249.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="707.0" stroke="BLACK" strokeType="INSIDE" width="249.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -23,7 +23,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <TableView fx:id="table" layoutX="249.0" prefHeight="707.0" prefWidth="714.0">
+      <TableView fx:id="table" layoutX="249.0" prefHeight="707.0" prefWidth="714.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="135.0">
         <columns>
           <TableColumn fx:id="itemColumn" prefWidth="118.0" text="Item" />
             <TableColumn fx:id="descriptionColumn" prefWidth="289.0" text="Description" />
@@ -31,9 +31,9 @@
             <TableColumn fx:id="quantityColumn" prefWidth="168.0" text="Quantity" />
         </columns>
       </TableView>
-      <Button fx:id="cartButton" layoutX="992.0" layoutY="653.0" mnemonicParsing="false" onAction="#goToCart" text="View Cart" />
+      <Button fx:id="cartButton" layoutX="992.0" layoutY="653.0" mnemonicParsing="false" onAction="#goToCart" text="View Cart" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="23.0" />
       <Accordion layoutX="24.0" layoutY="146.0" />
-    <TitledPane animated="false" layoutX="9.0" layoutY="27.0" prefHeight="674.0" prefWidth="231.0" text="Menu">
+    <TitledPane animated="false" layoutX="9.0" layoutY="27.0" prefHeight="674.0" prefWidth="231.0" text="Menu" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="9.0">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
