@@ -79,9 +79,9 @@ public class LoginTest {
         return false;
     }
 
-    public void goToRegister() throws IOException {
+    public void goToOrder() throws IOException {
         HelloApplication m = new HelloApplication();
-        m.changeScene("SignUp.fxml");
+        m.changeScene("initialMenu.fxml");
     }
     public void changeVisibility(){
 
