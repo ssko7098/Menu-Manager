@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.InitialMenu">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="707.0" stroke="BLACK" strokeType="INSIDE" width="249.0">
          <fill>
@@ -22,39 +23,31 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <TableView layoutX="249.0" prefHeight="707.0" prefWidth="714.0">
+      <TableView fx:id="table" layoutX="249.0" prefHeight="707.0" prefWidth="714.0">
         <columns>
-          <TableColumn prefWidth="112.0" text="Item" />
-          <TableColumn prefWidth="122.0" text="Price" />
-            <TableColumn prefWidth="135.0" text="Quantity" />
-            <TableColumn prefWidth="112.0">
-               <graphic>
-                  <Button alignment="TOP_LEFT" mnemonicParsing="false" style="-fx-background-color: Lime;" text="Add" />
-               </graphic>
-            </TableColumn>
+          <TableColumn fx:id="itemColumn" prefWidth="118.0" text="Item" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="289.0" text="Description" />
+          <TableColumn fx:id="priceColumn" prefWidth="138.0" text="Price" />
+            <TableColumn fx:id="quantityColumn" prefWidth="168.0" text="Quantity" />
         </columns>
       </TableView>
-      <Button layoutX="992.0" layoutY="653.0" mnemonicParsing="false" text="View Cart" />
+      <Button fx:id="cartButton" layoutX="992.0" layoutY="653.0" mnemonicParsing="false" onAction="#goToCart" text="View Cart" />
       <Accordion layoutX="24.0" layoutY="146.0" />
-      <Accordion layoutX="14.0" layoutY="100.0" prefHeight="558.0" prefWidth="224.0">
-        <panes>
-          <TitledPane animated="false" text="Menu">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField layoutX="6.0" layoutY="41.0" text="Burgers" />
-                        <TextField layoutX="6.0" layoutY="118.0" text="Burgers" />
-                        <TextField layoutX="6.0" layoutY="195.0" text="Burgers" />
-                        <TextField layoutX="6.0" layoutY="283.0" text="Burgers" />
-                        <TextField layoutX="6.0" layoutY="366.0" text="Burgers" />
-                     </children>
-                  </AnchorPane>
-            </content>
-               <font>
-                  <Font size="36.0" />
-               </font>
-          </TitledPane>
-        </panes>
-      </Accordion>
+    <TitledPane animated="false" layoutX="9.0" layoutY="27.0" prefHeight="674.0" prefWidth="231.0" text="Menu">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="-13.0" layoutY="6.0" prefHeight="533.0" prefWidth="241.0">
+                    <columns>
+                      <TableColumn fx:id="categoryColumn" prefWidth="240.0" text="Categories" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+      </content>
+         <font>
+            <Font size="36.0" />
+         </font>
+    </TitledPane>
    </children>
 </AnchorPane>
