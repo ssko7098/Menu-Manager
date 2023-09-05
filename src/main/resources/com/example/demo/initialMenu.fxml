@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="707.0" stroke="BLACK" strokeType="INSIDE" width="249.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#9700ff" />
+                  <Stop color="#4700ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <TableView layoutX="249.0" prefHeight="707.0" prefWidth="714.0">
+        <columns>
+          <TableColumn prefWidth="112.0" text="Item" />
+          <TableColumn prefWidth="122.0" text="Price" />
+            <TableColumn prefWidth="135.0" text="Quantity" />
+            <TableColumn prefWidth="112.0">
+               <graphic>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" style="-fx-background-color: Lime;" text="Add" />
+               </graphic>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Button layoutX="992.0" layoutY="653.0" mnemonicParsing="false" text="View Cart" />
+   </children>
+</AnchorPane>
