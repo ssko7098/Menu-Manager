@@ -2,12 +2,13 @@ package com.example.demo;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.IntegerStringConverter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -22,6 +23,7 @@ public class InitialMenu implements Initializable {
 
     @FXML
     private Button cartButton;
+
     @FXML
     private TableView<Item> table;
 
@@ -32,7 +34,7 @@ public class InitialMenu implements Initializable {
     private TableColumn<Item, String> categoryColumn;
 
     @FXML
-    private TableColumn<Item, Double> quantityColumn;
+    private TableColumn<Item, Integer> quantityColumn;
 
     @FXML
     private TableColumn<Item, Double> priceColumn;
@@ -48,10 +50,19 @@ public class InitialMenu implements Initializable {
 
 
     public void initialize(URL location, ResourceBundle resources) {
+        table.setEditable(true);
         itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<Item, Double>("Quantity"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
+        quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        quantityColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Item, Integer>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<Item, Integer> event) {
+                Item item = event.getRowValue();
+                item.setQuantity(event.getNewValue());
+            }
+        });
         try {
             table.setItems(displayItems());
         } catch (IOException e) {
@@ -69,9 +80,9 @@ public class InitialMenu implements Initializable {
 
         for (int i=0; i<menu.size(); i++) {
             JSONObject item = (JSONObject) menu.get(i);
-            itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
-        }
+            itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString()), 1));
 
+        }
         table.setItems(itemData);
         return itemData;
     }
