@@ -1,56 +1,226 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="667.0" style="-fx-background-color: #ddb33e;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SignUp">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="198.0" layoutX="222.0" layoutY="124.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="10.0" width="223.0" />
-            <TextField fx:id="username" layoutX="243.0" layoutY="184.0" prefHeight="30.0" prefWidth="180.0" promptText="Username" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #D6D6D6;">
-               <font>
-                  <Font name="Microsoft Sans Serif" size="12.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="password" layoutX="244.0" layoutY="223.0" prefHeight="30.0" prefWidth="180.0" promptText="Password" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #D6D6D6;">
-               <font>
-                  <Font name="Microsoft Sans Serif" size="12.0" />
-               </font>
-            </PasswordField>
-            <Button fx:id="button" layoutX="244.0" layoutY="265.0" mnemonicParsing="false" onAction="#createAdmin" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #004d44; -fx-background-radius: 0;" text="REGISTER" textFill="WHITE">
-               <font>
-                  <Font name="Microsoft Sans Serif" size="12.0" />
-               </font>
-            </Button>
-            <Line endX="180.0" endY="12.380752563476562" layoutX="243.0" layoutY="157.0" startY="12.380752563476562" stroke="#dddddd">
-               <effect>
-                  <Shadow height="0.0" radius="2.0" width="10.0">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SignUp">
+   <children>
+      <Rectangle height="714.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1202.0">
+         <fill>
+            <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
+               <stops>
+                  <Stop>
                      <color>
-                        <Color red="0.8289473652839661" green="0.8289473652839661" blue="0.8289473652839661" />
+                        <Color red="0.27914679050445557" blue="1.0" />
                      </color>
-                  </Shadow>
-               </effect>
-            </Line>
-            <Text fill="#ddb33e" layoutX="243.0" layoutY="153.0" onMouseClicked="#createAdmin" strokeType="OUTSIDE" strokeWidth="0.0" text="NOT A MEMBER?" wrappingWidth="106.95442199707031">
-               <font>
-                  <Font name="Microsoft Sans Serif" size="11.0" />
-               </font>
-            </Text>
-            <Text fill="#949494" layoutX="318.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="need help?" textAlignment="RIGHT" wrappingWidth="106.95442199707031">
-               <font>
-                  <Font name="Microsoft Sans Serif" size="9.0" />
-               </font>
-            </Text>
-         </children></AnchorPane>
-   </center>
-</BorderPane>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Polygon fill="#ebebeb1a" layoutX="510.0" layoutY="179.0" points="-514.0, 521.0, -201.5, 273.5, -514.0, -51.75437927246094" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Polygon fill="#ebebeb1a" layoutX="625.0" layoutY="103.0" points="-629.0, -102.99999237060547, -208.5, 216.5, 47.92132568359375, -102.99999237060547" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <ImageView fitHeight="525.0" fitWidth="491.0" layoutX="368.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginImages/box.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="395.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" style="letter-spacing: 10;" text="ITS ALL EATS" textAlignment="CENTER" wrappingWidth="443.8984375">
+         <font>
+            <Font name="Futura Medium" size="47.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <ImageView fitHeight="118.0" fitWidth="107.0" layoutX="563.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginImages/newLogo.png" />
+         </image>
+      </ImageView>
+      <Line endX="303.5" layoutX="497.0" layoutY="303.0" startX="-67.5" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="285.5" layoutX="507.0" layoutY="309.0" startX="-68.5" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <TextField fx:id="username" layoutX="470.0" layoutY="358.0" prefHeight="30.0" prefWidth="322.0" promptText="Username" style="-fx-background-color: white; -fx-border-color: white;">
+         <font>
+            <Font name="Microsoft Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="passwordText" layoutX="470.0" layoutY="410.0" prefHeight="30.0" prefWidth="322.0" style="-fx-background-color: White; -fx-border-color: white;">
+         <font>
+            <Font name="Microsoft Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="password" layoutX="472.0" layoutY="411.0" prefHeight="30.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: white; -fx-border-color: white;">
+         <font>
+            <Font name="Microsoft Sans Serif" size="14.0" />
+         </font>
+      </PasswordField>
+      <Line endX="285.5" endY="12.3807373046875" layoutX="507.0" layoutY="428.0" startX="-68.5" startY="12.3807373046875" stroke="#a4a4a4" strokeWidth="0.5">
+         <effect>
+            <Shadow height="5.0" radius="0.75" width="0.0">
+               <color>
+                  <Color red="0.5657894611358643" green="0.5579313039779663" blue="0.5579313039779663" />
+               </color>
+            </Shadow>
+         </effect>
+      </Line>
+      <Line endX="285.5" endY="12.3807373046875" layoutX="507.0" layoutY="375.0" startX="-68.5" startY="12.3807373046875" stroke="#a4a4a4" strokeWidth="0.5">
+         <effect>
+            <Shadow height="5.0" radius="0.75" width="0.0">
+               <color>
+                  <Color red="0.5657894611358643" green="0.5579313039779663" blue="0.5579313039779663" />
+               </color>
+            </Shadow>
+         </effect>
+      </Line>
+      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="445.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginImages/userLogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="445.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginImages/passLogo.png" />
+         </image>
+      </ImageView>
+      <Line endX="233.8333740234375" layoutX="552.0" layoutY="546.0" startX="-108.83331298828125" strokeWidth="2.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+         <effect>
+            <BoxBlur height="14.05" iterations="3" width="1.98" />
+         </effect>
+      </Line>
+      <ImageView fx:id="showPassword" fitHeight="21.0" fitWidth="23.0" layoutX="770.0" layoutY="415.0" onMousePressed="#changeVisibility" onMouseReleased="#changeVisibilityImage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginImages/hide.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.7" />
+         </effect>
+      </ImageView>
+      <Button fx:id="button1" layoutX="439.0" layoutY="457.0" mnemonicParsing="false" onAction="#createAdmin" prefHeight="71.0" prefWidth="355.0" style="-fx-background-color: 0;" text="REGISTER" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="63.0" fitWidth="58.0" layoutX="21.0" layoutY="19.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginImages/BackArrow.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
+      <Label fx:id="alreadyExists" alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="321.0" prefHeight="17.0" prefWidth="354.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Microsoft Sans Serif" size="13.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
