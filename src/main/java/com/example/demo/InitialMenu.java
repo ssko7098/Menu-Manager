@@ -86,5 +86,3 @@ public class InitialMenu implements Initializable {
         table.setItems(itemData);
         return itemData;
     }
-
-}
