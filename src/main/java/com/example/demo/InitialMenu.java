@@ -71,6 +71,7 @@ public class InitialMenu implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
     public ObservableList<Item> displayItems() throws IOException, ParseException {
 
         ObservableList<Item> itemData = FXCollections.observableArrayList();
@@ -78,7 +79,7 @@ public class InitialMenu implements Initializable {
         JSONParser parser = new JSONParser();
         JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
 
-        for (int i=0; i<menu.size(); i++) {
+        for (int i = 0; i < menu.size(); i++) {
             JSONObject item = (JSONObject) menu.get(i);
             itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString()), 1));
 
@@ -86,3 +87,4 @@ public class InitialMenu implements Initializable {
         table.setItems(itemData);
         return itemData;
     }
+}
