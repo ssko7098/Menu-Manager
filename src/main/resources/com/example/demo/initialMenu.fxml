@@ -51,7 +51,6 @@
         </TitledPane>
     </children>
 </AnchorPane>
-=======
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="707.0" stroke="BLACK" strokeType="INSIDE" width="249.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <fill>
