@@ -78,10 +78,15 @@ public class InitialMenu implements Initializable {
         ObservableList<Item> itemData = FXCollections.observableArrayList();
 
         JSONParser parser = new JSONParser();
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
+        Object menu = parser.parse(new FileReader("menu.json"));
 
-        for (int i = 0; i < menu.size(); i++) {
-            JSONObject item = (JSONObject) menu.get(i);
+        // convert Object to JSONObject
+        JSONObject jsonObject = (JSONObject) menu;
+
+        JSONArray catMenu = (JSONArray) jsonObject.get("Mains");
+
+        for (int i = 0; i < catMenu.size(); i++) {
+            JSONObject item = (JSONObject) catMenu.get(i);
             itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString()), 1));
 
         }
