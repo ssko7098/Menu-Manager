@@ -18,6 +18,13 @@ ext {
   junitVersion = '5.9.2'
 }
 
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
