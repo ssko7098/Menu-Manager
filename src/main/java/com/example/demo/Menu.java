@@ -203,11 +203,17 @@ public class Menu implements Initializable {
 
     public void updateItem() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();
-        JSONParser parser = new JSONParser();
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
 
-        for (int i=0; i<menu.size(); i++) {
-            JSONObject item = (JSONObject) menu.get(i);
+        JSONParser parser = new JSONParser();
+        Object menu = parser.parse(new FileReader("menu.json"));
+
+        // convert Object to JSONObject
+        JSONObject jsonObject = (JSONObject) menu;
+
+        JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
+
+        for (int i=0; i<catMenu.size(); i++) {
+            JSONObject item = (JSONObject) catMenu.get(i);
 
             if(item.get("name").equals(updatedName.getText())) {
                 if(!updatedDescription.getText().isEmpty()) {
@@ -221,7 +227,7 @@ public class Menu implements Initializable {
         }
 
         FileWriter file = new FileWriter("menu.json");
-        file.write(menu.toJSONString());
+        file.write(jsonObject.toJSONString());
         file.flush();
         file.close();
 
