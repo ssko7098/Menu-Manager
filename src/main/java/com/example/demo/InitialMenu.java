@@ -15,6 +15,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +26,7 @@ public class InitialMenu implements Initializable {
     private Button cartButton;
 
     @FXML
-    private TableView<Item> table;
+    public TableView<Item> table;
 
     @FXML
     private TableColumn<Item, String> itemColumn;
@@ -87,4 +88,31 @@ public class InitialMenu implements Initializable {
         table.setItems(itemData);
         return itemData;
     }
+
+//    public void addOrder() throws IOException, ParseException {
+//        JSONParser parser = new JSONParser();
+//        JSONArray cart = (JSONArray) parser.parse(new FileReader("cart.json"));
+//
+//        JSONObject itemNew = new JSONObject();
+//
+//        for(int i = 0; i < table.) {
+//
+//        }
+//        table.getColumns().get(0).getCellObservableValue(0).getValue().toString();
+//
+//        // iterate through table, if quantity > 0, put name, price, quantity
+//        itemNew.put("name", name.getText());
+//        itemNew.put("price", newPrice.getText());
+//        itemNew.put("quantity", quantity.getInt());
+//
+//        cart.add(itemNew);
+//
+//        FileWriter file = new FileWriter("cart.json");
+//        file.write(menu.toJSONString());
+//        file.flush();
+//        file.close();
+//
+//    }
+
+}
 }
