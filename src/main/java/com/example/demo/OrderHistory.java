@@ -56,30 +56,29 @@ public class OrderHistory implements Initializable {
 
     public void updateOrders() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
-        JSONArray items = (JSONArray) parser.parse(new FileReader("orders.json"));
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
+        Object obj = parser.parse(new FileReader("orders.json"));
 
-        for (int i=0; i<items.size(); i++) {
-            JSONObject item = (JSONObject) items.get(i);
-            String[] orderItems = item.get("items").toString().split(", ");
+        JSONObject jsonObject = (JSONObject) obj;
+
+        JSONArray orders = (JSONArray) jsonObject.get("Orders");
+
+        for(int i=0; i<orders.size(); i++) {
+            JSONObject order = (JSONObject) orders.get(i);
+            JSONArray items = (JSONArray) order.get("items");
+            String date = order.get("date").toString();
 
             ArrayList<Item> ls = new ArrayList<>();
 
-            for (int y=0; y<orderItems.length; y++) {
-                for (int x=0; x<menu.size(); x++) {
-                    JSONObject menuItem = (JSONObject) menu.get(x);
+            for(int x=0; x<items.size(); x++) {
+                JSONObject item = (JSONObject) items.get(x);
+                String name = item.get("name").toString();
+                int qty = Integer.parseInt(item.get("quantity").toString());
+                double price = Double.parseDouble(item.get("price").toString());
 
-                    if(menuItem.get("name").equals(orderItems[y])) {
-                        Item test = new Item(menuItem.get("name").toString(),
-                                menuItem.get("description").toString(),
-                                Double.parseDouble(menuItem.get("price").toString()));
-
-                        ls.add(test);
-                    }
-                }
+                ls.add(new Item((qty + "x " + name), price*qty, qty));
             }
 
-            list.add(new Order(i+1, ls, item.get("date").toString()));
+            list.add(new Order(i+1, ls, date));
         }
     }
 
@@ -105,7 +104,6 @@ public class OrderHistory implements Initializable {
     }
 
     public void searchOrder() throws IOException, ParseException {
-
         if(orderNumber.getText().isEmpty()) {
             HelloApplication m = new HelloApplication();
             m.changeScene("OrderHistory.fxml");
@@ -116,36 +114,36 @@ public class OrderHistory implements Initializable {
 
         orderID.setCellValueFactory(new PropertyValueFactory<Order, Integer>("OrderID"));
         date.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("Date"));
-        this.items.setCellValueFactory(new PropertyValueFactory<Order, String>("Items"));
+        items.setCellValueFactory(new PropertyValueFactory<Order, String>("Items"));
         total.setCellValueFactory(new PropertyValueFactory<Order, Double>("Total"));
 
         JSONParser parser = new JSONParser();
-        JSONArray items = (JSONArray) parser.parse(new FileReader("orders.json"));
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
+        Object obj = parser.parse(new FileReader("orders.json"));
 
-        for (int i=0; i<items.size(); i++) {
+        JSONObject jsonObject = (JSONObject) obj;
+
+        JSONArray orders = (JSONArray) jsonObject.get("Orders");
+
+        for(int i=0; i<orders.size(); i++) {
             if(i+1 == Integer.parseInt(orderNumber.getText())) {
-                JSONObject item = (JSONObject) items.get(i);
-                String[] orderItems = item.get("items").toString().split(", ");
+                JSONObject order = (JSONObject) orders.get(i);
+                JSONArray items = (JSONArray) order.get("items");
+                String date = order.get("date").toString();
 
                 ArrayList<Item> ls = new ArrayList<>();
 
-                for (int y=0; y<orderItems.length; y++) {
-                    for (int x=0; x<menu.size(); x++) {
-                        JSONObject menuItem = (JSONObject) menu.get(x);
+                for(int x=0; x<items.size(); x++) {
+                    JSONObject item = (JSONObject) items.get(x);
+                    String name = item.get("name").toString();
+                    int qty = Integer.parseInt(item.get("quantity").toString());
+                    double price = Double.parseDouble(item.get("price").toString());
 
-                        if(menuItem.get("name").equals(orderItems[y])) {
-                            Item test = new Item(menuItem.get("name").toString(),
-                                    menuItem.get("description").toString(),
-                                    Double.parseDouble(menuItem.get("price").toString()));
-
-                            ls.add(test);
-                        }
-                    }
+                    ls.add(new Item((qty + "x " + name), price*qty, qty));
                 }
 
-                list.add(new Order(i+1, ls, item.get("date").toString()));
+                list.add(new Order(i+1, ls, date));
             }
+
         }
 
         table.setItems(list);

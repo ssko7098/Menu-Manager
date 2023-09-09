@@ -48,5 +48,11 @@ public class Item {
 
         this.quantity = quantity;
     }
+
+    public Item(String name, double price, int quantity) {
+        this.price = price;
+        this.name = name;
+        this.quantity = quantity;
+    }
 }
 

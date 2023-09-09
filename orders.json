@@ -1,10 +1,36 @@
-[
-  {
-    "date": "2023-09-04",
-    "items": "Classic Burger, Margherita Pizza"
-  },
-  {
-    "date": "2023-09-11",
-    "items": "Caesar Salad, Classic Burger, Grilled Chicken Sandwich"
-  }
-]
+
+
+{
+  "Orders": [
+    {
+      "date": "2023-09-04",
+      "items": [
+        {
+          "name": "Caesar Salad",
+          "price": 8.99,
+          "quantity": 1
+        },
+        {
+          "name": "Classic Burger",
+          "price": 9.99,
+          "quantity": 2
+        }
+        ]
+    },
+    {
+      "date": "2023-09-09",
+      "items": [
+        {
+          "name": "Margherita Pizza",
+          "price": 11.99,
+          "quantity": 3
+        },
+        {
+          "name": "Classic Burger",
+          "price": 9.99,
+          "quantity": 2
+        }
+      ]
+    }
+  ]
+}
