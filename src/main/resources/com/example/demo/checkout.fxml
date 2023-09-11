@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,9 +16,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Checkout">
+<AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Checkout">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="417.0" stroke="BLACK" strokeType="INSIDE" width="600.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="711.0" layoutX="-1.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="1104.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -40,11 +41,16 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Text fill="WHITE" layoutX="277.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout" wrappingWidth="82.1328125">
+      <Text fill="WHITE" layoutX="365.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout" wrappingWidth="222.50033594683669">
          <font>
-            <Font name="Futura Medium" size="18.0" />
+            <Font name="Futura Medium" size="26.0" />
          </font></Text>
-      <TableView blendMode="ADD" layoutX="-6.0" layoutY="142.0" prefHeight="200.0" prefWidth="237.0">
+      <Text fill="WHITE" layoutX="72.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Summary" wrappingWidth="91.45703125">
+         <font>
+            <Font name="Trebuchet MS Italic" size="13.0" />
+         </font>
+      </Text>
+      <TableView blendMode="ADD" layoutX="20.0" layoutY="140.0" prefHeight="395.0" prefWidth="307.0">
         <columns>
           <TableColumn fx:id="item" prefWidth="109.0" text="Item" />
           <TableColumn fx:id="Quantity" prefWidth="72.0" text="Quantitiy" />
@@ -52,44 +58,57 @@
         </columns>
       </TableView>
       <Polygon blendMode="LIGHTEN" fill="#ebebeb1a" layoutX="113.0" layoutY="84.0" points="-113.0, -84.0, 117.0, -84.0, -2.610015869140625, 40.630218505859375" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Text fill="WHITE" layoutX="64.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Summary">
+      <Text fill="WHITE" layoutX="884.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details">
          <font>
             <Font name="Trebuchet MS Italic" size="13.0" />
          </font>
       </Text>
-      <Button fx:id="ChangeItems" layoutX="61.0" layoutY="364.0" mnemonicParsing="false" onAction="#toMenu" text="Change Items" textAlignment="CENTER" textFill="WHITE" underline="true">
+      <Button fx:id="ChangeItems" layoutX="95.0" layoutY="585.0" mnemonicParsing="false" onAction="#toMenu" prefHeight="51.0" prefWidth="127.0" text="Change Items" textAlignment="CENTER" textFill="WHITE" underline="true">
          <font>
             <Font name="DIN Alternate Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="Payment" layoutX="359.0" layoutY="364.0" mnemonicParsing="false" style="-fx-background-color: 9700ff;" text="Confirm Payment" textFill="WHITE" />
-      <TabPane layoutX="318.0" layoutY="62.0" prefHeight="269.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+      <Button fx:id="Payment" layoutX="878.0" layoutY="407.0" mnemonicParsing="false" onAction="#toCompletion" style="-fx-background-color: 9700ff;" text="Confirm Payment" textFill="WHITE" />
+      <TabPane layoutX="443.0" layoutY="138.0" prefHeight="335.0" prefWidth="293.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Delivery">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="-1.0" prefHeight="213.0" prefWidth="200.0" style="-fx-background-color: FFFFFF;">
+                        <AnchorPane layoutX="-1.0" prefHeight="276.0" prefWidth="295.0" style="-fx-background-color: FFFFFF;">
                            <children>
-                              <TextField fx:id="Address" layoutX="24.0" layoutY="14.0" promptText="Address" />
-                              <TextField fx:id="PostCode" layoutX="14.0" layoutY="68.0" prefHeight="26.0" prefWidth="73.0" promptText="PostCode" />
-                              <TextField fx:id="State" layoutX="100.0" layoutY="68.0" prefHeight="26.0" prefWidth="73.0" promptText="State" />
-                              <TextField fx:id="Phone" layoutX="24.0" layoutY="116.0" promptText="Phone" />
-                           </children></AnchorPane>
+                              <TextField fx:id="Address" layoutX="24.0" layoutY="14.0" prefHeight="39.0" prefWidth="233.0" promptText="Address" />
+                              <TextField fx:id="PostCode" layoutX="13.0" layoutY="92.0" prefHeight="39.0" prefWidth="80.0" promptText="PostCode" />
+                              <TextField fx:id="State" layoutX="132.0" layoutY="93.0" prefHeight="39.0" prefWidth="118.0" promptText="State" />
+                              <TextField fx:id="Phone" layoutX="16.0" layoutY="169.0" prefHeight="26.0" prefWidth="209.0" promptText="Phone" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Click &amp; Collect">
+          <Tab text="PickUp">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane layoutX="-7.0" layoutY="-7.0" prefHeight="219.0" prefWidth="209.0" style="-fx-background-color: FFFFFF;" />
+                        <AnchorPane layoutX="-7.0" layoutY="-7.0" prefHeight="287.0" prefWidth="302.0" style="-fx-background-color: FFFFFF;">
+                           <children>
+                              <Text layoutX="8.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You Have Chosen To PickUp Your Order.">
+                                 <font>
+                                    <Font name="Charter Roman" size="16.0" />
+                                 </font>
+                              </Text>
+                           </children></AnchorPane>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="219.0" layoutX="808.0" layoutY="142.0" stroke="BLACK" strokeType="INSIDE" width="257.0" />
+      <TextField fx:id="Card" layoutX="859.0" layoutY="222.0" promptText="Card Number" />
+      <TextField fx:id="Name" layoutX="861.0" layoutY="167.0" promptText="Name" />
+      <TextField fx:id="Expiry" layoutX="834.0" layoutY="277.0" prefHeight="26.0" prefWidth="72.0" promptText="Exp. Date" />
+      <PasswordField fx:id="CVC" layoutX="932.0" layoutY="277.0" prefHeight="26.0" prefWidth="95.0" promptText="CVC" />
    </children>
 </AnchorPane>
