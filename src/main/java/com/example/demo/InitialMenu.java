@@ -87,36 +87,36 @@ public class InitialMenu implements Initializable {
 
         for (int i = 0; i < catMenu.size(); i++) {
             JSONObject item = (JSONObject) catMenu.get(i);
-            itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString()), 1));
+            itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString()), 0));
 
         }
         table.setItems(itemData);
         return itemData;
     }
 
-//    public void addOrder() throws IOException, ParseException {
-//        JSONParser parser = new JSONParser();
-//        JSONArray cart = (JSONArray) parser.parse(new FileReader("cart.json"));
-//
-//        JSONObject itemNew = new JSONObject();
-//
-//        for(int i = 0; i < table.) {
-//
-//        }
-//        table.getColumns().get(0).getCellObservableValue(0).getValue().toString();
-//
-//        // iterate through table, if quantity > 0, put name, price, quantity
-//        itemNew.put("name", name.getText());
-//        itemNew.put("price", newPrice.getText());
-//        itemNew.put("quantity", quantity.getInt());
-//
-//        cart.add(itemNew);
-//
-//        FileWriter file = new FileWriter("cart.json");
-//        file.write(menu.toJSONString());
-//        file.flush();
-//        file.close();
-//
-//    }
+    public void addOrder() throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        JSONObject obj = (JSONObject) parser.parse(new FileReader("cart.json"));
+        JSONArray cart = new JSONArray();
 
-}
+//            JSONArray cart = (JSONArray) parser.parse(new FileReader("cart.json"));
+
+        for(int i = 0; i < table.getItems().size(); i++){
+            if(quantityColumn.getCellData(i) > 0){
+                JSONObject itemNew = new JSONObject();
+                itemNew.put("name", itemColumn.getCellData(i));
+                itemNew.put("price", priceColumn.getCellData(i));
+                itemNew.put("quantity", quantityColumn.getCellData(i));
+
+                cart.add(itemNew);
+            }
+        }
+
+        FileWriter file = new FileWriter("cart.json");
+        file.write(cart.toJSONString());
+        file.flush();
+        file.close();
+        }
+    }
+
+

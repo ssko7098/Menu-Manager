@@ -3,7 +3,7 @@ package com.example.demo;
 public class Item {
 
     private double price;
-    private double quantity;
+    private int quantity;
     private String name;
     private String description;
 
@@ -17,7 +17,7 @@ public class Item {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -53,6 +53,10 @@ public class Item {
         this.price = price;
         this.name = name;
         this.quantity = quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }
 
