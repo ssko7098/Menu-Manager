@@ -83,16 +83,16 @@ public class HelloApplicationTest extends Application {
         assertTrue(success);
     }
 
-//     @Test
-//     public void unsucessfulLogin() throws IOException, ParseException {
-//         HelloApplication m = new HelloApplication();
-//         //TextField username;
-//         //PasswordField passwordField = new PasswordField();
-//         //TextField wrongLogin = new TextField();
-//         loginTest.userLogin();
-//         assertEquals("Please enter your username and password", wrongLogin.getText());
-
-//     }
+//    @Test
+//    public void unsucessfulLogin() throws IOException, ParseException {
+//        HelloApplication m = new HelloApplication();
+//        //TextField username;
+//        //PasswordField passwordField = new PasswordField();
+//        //TextField wrongLogin = new TextField();
+//        loginTest.userLogin();
+//        assertEquals("Please enter your username and password", wrongLogin.getText());
+//
+//    }
 
     //@org.junit.Test
     //public void sign_Up_Button_Text() {
