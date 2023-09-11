@@ -15,6 +15,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +26,7 @@ public class InitialMenu implements Initializable {
     private Button cartButton;
 
     @FXML
-    private TableView<Item> table;
+    public TableView<Item> table;
 
     @FXML
     private TableColumn<Item, String> itemColumn;
@@ -71,20 +72,51 @@ public class InitialMenu implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
     public ObservableList<Item> displayItems() throws IOException, ParseException {
 
         ObservableList<Item> itemData = FXCollections.observableArrayList();
 
         JSONParser parser = new JSONParser();
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
+        Object menu = parser.parse(new FileReader("menu.json"));
 
-        for (int i=0; i<menu.size(); i++) {
-            JSONObject item = (JSONObject) menu.get(i);
+        // convert Object to JSONObject
+        JSONObject jsonObject = (JSONObject) menu;
+
+        JSONArray catMenu = (JSONArray) jsonObject.get("Mains");
+
+        for (int i = 0; i < catMenu.size(); i++) {
+            JSONObject item = (JSONObject) catMenu.get(i);
             itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString()), 1));
 
         }
         table.setItems(itemData);
         return itemData;
     }
+
+//    public void addOrder() throws IOException, ParseException {
+//        JSONParser parser = new JSONParser();
+//        JSONArray cart = (JSONArray) parser.parse(new FileReader("cart.json"));
+//
+//        JSONObject itemNew = new JSONObject();
+//
+//        for(int i = 0; i < table.) {
+//
+//        }
+//        table.getColumns().get(0).getCellObservableValue(0).getValue().toString();
+//
+//        // iterate through table, if quantity > 0, put name, price, quantity
+//        itemNew.put("name", name.getText());
+//        itemNew.put("price", newPrice.getText());
+//        itemNew.put("quantity", quantity.getInt());
+//
+//        cart.add(itemNew);
+//
+//        FileWriter file = new FileWriter("cart.json");
+//        file.write(menu.toJSONString());
+//        file.flush();
+//        file.close();
+//
+//    }
 
 }

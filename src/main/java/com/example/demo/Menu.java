@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -66,7 +63,22 @@ public class Menu implements Initializable {
     @FXML
     private TextField removedItem;
 
+    @FXML
+    private ChoiceBox<String> currentCat;
+
     public ObservableList<Item> list = FXCollections.observableArrayList();
+
+    public ObservableList<String> availableCats = FXCollections.observableArrayList("Mains", "Desserts");
+
+    public void clearFields() {
+        updatedName.clear();
+        updatedDescription.clear();
+        updatedPrice.clear();
+        newItem.clear();
+        newPrice.clear();
+        newDescription.clear();
+        removedItem.clear();
+    }
 
     public void logOut(ActionEvent event) throws IOException {
         HelloApplication m = new HelloApplication();
@@ -75,17 +87,29 @@ public class Menu implements Initializable {
 
     public void updateMenu() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
-        JSONArray items = (JSONArray) parser.parse(new FileReader("menu.json"));
+        Object menu = parser.parse(new FileReader("menu.json"));
 
-        for (int i=0; i<items.size(); i++) {
-            JSONObject item = (JSONObject) items.get(i);
+        // convert Object to JSONObject
+        JSONObject jsonObject = (JSONObject) menu;
+
+        // reading the "Mains" array:
+        JSONArray mains = (JSONArray) jsonObject.get(currentCat.getValue());
+
+        for (int i=0; i<mains.size(); i++) {
+            JSONObject item = (JSONObject) mains.get(i);
 
             list.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
         }
+
+        clearFields();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        currentCat.setValue("Mains");
+        currentCat.setItems(availableCats);
+
         name.setCellValueFactory(new PropertyValueFactory<Item, String>("Name"));
         description.setCellValueFactory(new PropertyValueFactory<Item, String>("Description"));
         price.setCellValueFactory(new PropertyValueFactory<Item, Double>("Price"));
@@ -102,13 +126,19 @@ public class Menu implements Initializable {
 
     public void addItem() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();
+
         JSONParser parser = new JSONParser();
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
+        Object menu = parser.parse(new FileReader("menu.json"));
+
+        // convert Object to JSONObject
+        JSONObject jsonObject = (JSONObject) menu;
+
+        JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
 
         JSONObject itemNew = new JSONObject();
 
-        for (int i=0; i<menu.size(); i++) {
-            JSONObject item = (JSONObject) menu.get(i);
+        for (int i=0; i<catMenu.size(); i++) {
+            JSONObject item = (JSONObject) catMenu.get(i);
 
             if(item.get("name").equals(newItem.getText())) {
                 return;
@@ -119,44 +149,71 @@ public class Menu implements Initializable {
         itemNew.put("description", newDescription.getText());
         itemNew.put("price", newPrice.getText());
 
-        menu.add(itemNew);
+        catMenu.add(itemNew);
+        jsonObject.put(currentCat.getValue(), catMenu);
 
         FileWriter file = new FileWriter("menu.json");
-        file.write(menu.toJSONString());
+        file.write(jsonObject.toJSONString());
         file.flush();
         file.close();
 
-        m.changeScene("menu.fxml");
+        try {
+            table.getItems().clear();
+            this.updateMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void removeItem() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();
-        JSONParser parser = new JSONParser();
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
 
-        for (int i=0; i<menu.size(); i++) {
-            JSONObject item = (JSONObject) menu.get(i);
+        JSONParser parser = new JSONParser();
+        Object menu = parser.parse(new FileReader("menu.json"));
+
+        // convert Object to JSONObject
+        JSONObject jsonObject = (JSONObject) menu;
+
+        JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
+
+        for (int i=0; i<catMenu.size(); i++) {
+            JSONObject item = (JSONObject) catMenu.get(i);
 
             if(item.get("name").equals(removedItem.getText())) {
-                menu.remove(item);
+                catMenu.remove(item);
             }
         }
 
         FileWriter file = new FileWriter("menu.json");
-        file.write(menu.toJSONString());
+        file.write(jsonObject.toJSONString());
         file.flush();
         file.close();
 
-        m.changeScene("menu.fxml");
+        try {
+            table.getItems().clear();
+            this.updateMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void updateItem() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();
-        JSONParser parser = new JSONParser();
-        JSONArray menu = (JSONArray) parser.parse(new FileReader("menu.json"));
 
-        for (int i=0; i<menu.size(); i++) {
-            JSONObject item = (JSONObject) menu.get(i);
+        JSONParser parser = new JSONParser();
+        Object menu = parser.parse(new FileReader("menu.json"));
+
+        // convert Object to JSONObject
+        JSONObject jsonObject = (JSONObject) menu;
+
+        JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
+
+        for (int i=0; i<catMenu.size(); i++) {
+            JSONObject item = (JSONObject) catMenu.get(i);
 
             if(item.get("name").equals(updatedName.getText())) {
                 if(!updatedDescription.getText().isEmpty()) {
@@ -170,11 +227,18 @@ public class Menu implements Initializable {
         }
 
         FileWriter file = new FileWriter("menu.json");
-        file.write(menu.toJSONString());
+        file.write(jsonObject.toJSONString());
         file.flush();
         file.close();
 
-        m.changeScene("menu.fxml");
+        try {
+            table.getItems().clear();
+            this.updateMenu();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void viewOrderHistory(ActionEvent event) throws IOException {
@@ -185,5 +249,18 @@ public class Menu implements Initializable {
     public void createAdmin(ActionEvent event) throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("SignUp.fxml");
+    }
+
+    public void changeMenu() {
+        currentCat.setOnAction((event) -> {
+            try {
+                table.getItems().clear();
+                this.updateMenu();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }
