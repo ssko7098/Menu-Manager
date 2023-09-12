@@ -112,6 +112,7 @@ public class InitialMenu implements Initializable {
             }
         }
 
+
         obj.put("Cart", cart);
 
         FileWriter file = new FileWriter("cart.json");

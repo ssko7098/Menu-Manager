@@ -58,7 +58,6 @@ public class Checkout implements Initializable {
         changeOrder.changeScene("initialMenu.fxml");
     }
 
-
     @FXML
     void toCompletion(ActionEvent event) throws IOException {
         HelloApplication toEnd = new HelloApplication();
