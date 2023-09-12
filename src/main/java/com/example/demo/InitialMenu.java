@@ -97,13 +97,13 @@ public class InitialMenu implements Initializable {
     public void addOrder() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         JSONObject obj = (JSONObject) parser.parse(new FileReader("cart.json"));
-        JSONArray cart = new JSONArray();
 
-//            JSONArray cart = (JSONArray) parser.parse(new FileReader("cart.json"));
+        JSONArray cart = new JSONArray();
 
         for(int i = 0; i < table.getItems().size(); i++){
             if(quantityColumn.getCellData(i) > 0){
                 JSONObject itemNew = new JSONObject();
+
                 itemNew.put("name", itemColumn.getCellData(i));
                 itemNew.put("price", priceColumn.getCellData(i));
                 itemNew.put("quantity", quantityColumn.getCellData(i));
@@ -112,8 +112,11 @@ public class InitialMenu implements Initializable {
             }
         }
 
+
+        obj.put("Cart", cart);
+
         FileWriter file = new FileWriter("cart.json");
-        file.write(cart.toJSONString());
+        file.write(obj.toJSONString());
         file.flush();
         file.close();
         }
