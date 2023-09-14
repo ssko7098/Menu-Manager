@@ -5,7 +5,6 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
@@ -260,11 +259,6 @@
       <font>
          <Font name="Microsoft Sans Serif" size="14.0" />
       </font></TextField>
-   <TextField fx:id="passwordText" layoutX="788.0" layoutY="374.0" prefHeight="30.0" prefWidth="322.0" style="-fx-background-color: White; -fx-border-color: white;">
-      <font>
-         <Font name="Microsoft Sans Serif" size="14.0" />
-      </font>
-   </TextField>
    <PasswordField fx:id="password" layoutX="790.0" layoutY="375.0" prefHeight="30.0" prefWidth="322.0" promptText="Password" style="-fx-background-color: white; -fx-border-color: white;">
       <font>
          <Font name="Microsoft Sans Serif" size="14.0" />
@@ -324,14 +318,6 @@
             <BoxBlur height="14.05" iterations="3" width="1.98" />
         </effect>
     </Line>
-    <ImageView fx:id="showPassword" fitHeight="21.0" fitWidth="23.0" layoutX="1088.0" layoutY="379.0" onMousePressed="#changeVisibility" onMouseReleased="#changeVisibilityImage" pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@loginImages/hide.png" />
-        </image>
-        <effect>
-            <ColorAdjust brightness="0.7" />
-        </effect>
-    </ImageView>
    <Button fx:id="button" layoutX="755.0" layoutY="427.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="71.0" prefWidth="355.0" style="-fx-region-background: 0;" text="SIGN IN" textFill="WHITE">
       <font>
          <Font name="Microsoft Sans Serif" size="16.0" />

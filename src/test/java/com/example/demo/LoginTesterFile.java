@@ -1,69 +1,77 @@
 package com.example.demo;
 
-
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.json.simple.parser.ParseException;
-import org.junit.Before;
+import javafx.stage.Stage;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
+import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.util.NodeQueryUtils.hasText;
+
+@ExtendWith(ApplicationExtension.class)
 public class LoginTesterFile {
 
-    public LoginTest test;
+    public Stage stage;
 
     @BeforeEach
-    public void setup() {
-        test = new LoginTest();
+    public void setUp() throws Exception {
+        FxToolkit.registerPrimaryStage();
+        FxToolkit.setupApplication(HelloApplication.class);
+    }
+
+    @AfterEach
+    public void tearDown() throws Exception {
+        FxToolkit.cleanupStages();
+        FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
+    }
+
+    @Start
+    public void start(Stage primaryStage) throws IOException {
+        Stage stage = primaryStage;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        stage.resizableProperty();
+        stage.setTitle("Menu Manager");
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @Test
-    void testingTestFunction() throws IOException, ParseException {
-        test.username = new TextField("admin");
-        test.password = new PasswordField();
-        test.passwordText = new TextField();
-        test.wrongLogin = new Label();
-        test.password.setText("1234");
+    void testingTestFunction(FxRobot robot) throws IOException {
+        Button buttonTester = robot.lookup("#button").queryAs(Button.class);
+        Label labelHolder = robot.lookup("#wrongLogin").queryAs(Label.class);
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+        assertNotNull(buttonTester);
 
-        test.test();
-        Assertions.assertEquals("Success!", test.wrongLogin.getText());
-        Assertions.assertTrue(test.checkAdmin(test.username.getText(), test.password.getText()));
+        //Testing Login Combinations
+        robot.clickOn("#button");
+        robot.clickOn("#username");
+        robot.write("admin1");
+        robot.clickOn("#button");
+        assertEquals(labelHolder.getText(),"Wrong username or password!");
+        robot.clickOn("#password");
+        robot.write("1234");
 
-        test.username.setText("wrongAdmin");
-
-        test.test();
-        Assertions.assertEquals("Wrong username or password!", test.wrongLogin.getText());
-        Assertions.assertFalse(test.checkAdmin(test.username.getText(), test.password.getText()));
-
-        test.username.setText("admin");
-        test.password.setText("wrongPassword");
-
-        Assertions.assertFalse(test.checkAdmin(test.username.getText(), test.password.getText()));
-
-        test.username.clear();
-        test.password.clear();
-        test.test();
-        Assertions.assertEquals("Please enter your username and password", test.wrongLogin.getText());
-    }
-
-//    @Test
-//    void testGoToOrder() throws IOException {
-//        test.goToOrder();
-//    }
-
-    @Test
-    void testUserLogin() throws IOException, ParseException {
-        test.username = new TextField("admin");
-        test.password = new PasswordField();
-        test.passwordText = new TextField();
-        test.wrongLogin = new Label();
-        test.password.setText("1234");
-
-        test.userLogin();
+        robot.clickOn("#username");
+        robot.eraseText(6);
+        robot.clickOn("#button");
     }
 }
-
