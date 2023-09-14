@@ -3,7 +3,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +19,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import java.text.DecimalFormat;
+
 
 public class Checkout implements Initializable {
 
@@ -67,13 +71,13 @@ public class Checkout implements Initializable {
     private Label totalPrice;
 
 
-    //ObservableList<Item> itemInfo = FXCollections.observableArrayList();
 
 
     @FXML
-    void toMenu(ActionEvent event) throws IOException {
+    void toMenu(ActionEvent event) throws IOException, ParseException {
         HelloApplication changeOrder = new HelloApplication();
         changeOrder.changeScene("initialMenu.fxml");
+        addToHistory();
     }
 
     @FXML
@@ -98,7 +102,6 @@ public class Checkout implements Initializable {
     }
 
     public void displayCheckout() throws IOException, ParseException {
-        //ObservableList<Item> itemInfo = FXCollections.observableArrayList();
 
         JSONParser parser = new JSONParser();
         Object cart = parser.parse(new FileReader("cart.json"));
@@ -110,9 +113,31 @@ public class Checkout implements Initializable {
             itemInfo.add(new Item(item.get("name").toString(), Double.parseDouble(item.get("price").toString()), Integer.parseInt(item.get("quantity").toString())));
             qty += Double.parseDouble(item.get("price").toString()) * Integer.parseInt(item.get("quantity").toString());
         }
+        DecimalFormat df = new DecimalFormat("##.00");
+        totalPrice.setText("$" + df.format(qty));
+    }
 
-        totalPrice.setText("$" + qty);
-        //checkoutTable.setItems(itemInfo);
+    public void addToHistory() throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        JSONObject orderHistory = (JSONObject) parser.parse(new FileReader("orders.json"));
+
+        JSONArray orders = new JSONArray();
+
+        for (int i = 0; i < checkoutTable.getItems().size(); i++) {
+
+            JSONObject itemNew = new JSONObject();
+
+            itemNew.put("name", item.getCellData(i));
+            itemNew.put("price", price.getCellData(i));
+            itemNew.put("quantity", quantity.getCellData(i));
+            orders.add(itemNew);
+        }
+
+        orderHistory.put("Past Orders", orders);
+
+        FileWriter file = new FileWriter("orders.json");
+        file.write(orderHistory.toJSONString());
+        file.flush();
+        file.close();
     }
 }
-
