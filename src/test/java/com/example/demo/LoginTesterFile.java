@@ -53,4 +53,10 @@ public class LoginTesterFile {
         stage.show();
     }
 
+    @Test
+    void testingTestFunction(FxRobot robot) throws IOException {
+        Button buttonTester = robot.lookup("#button").queryAs(Button.class);
+        Label labelHolder = robot.lookup("#wrongLogin").queryAs(Label.class);
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+    }
 }
