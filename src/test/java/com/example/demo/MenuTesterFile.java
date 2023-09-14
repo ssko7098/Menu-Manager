@@ -65,4 +65,21 @@ public class MenuTesterFile {
         assertEquals(a, 2.11, 0.001);
     }
 
+
+    @Test
+    void orderFirstTest(){
+        Item item1 = new Item("bob", "bob is cool", 4.8);
+        Item item2 = new Item("burger", "burger is tasty", 14.8);
+        Item item3 = new Item("pizza", "pizza is crispy", 34.6);
+        ArrayList<Item> items = new ArrayList<Item>();
+        items.add(item1);
+        items.add(item2);
+        Order order = new Order(2, items, "July 1st");
+        order.addItem(item3);
+        double t = order.getTotal();
+        long i = order.getOrderID();
+        String s = order.getItems();
+        String d = order.getDate();
+    }
+
 }
