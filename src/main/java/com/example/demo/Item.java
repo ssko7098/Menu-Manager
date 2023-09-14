@@ -12,6 +12,11 @@ public class Item {
         this.name = name;
         this.description = description;
     }
+    public Item(String name, Integer quantity, double price) {
+        this.price = price;
+        this.name = name;
+        this.quantity = quantity;
+    }
 
     public double getPrice() {
         return price;
