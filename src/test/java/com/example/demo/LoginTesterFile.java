@@ -58,5 +58,14 @@ public class LoginTesterFile {
         Button buttonTester = robot.lookup("#button").queryAs(Button.class);
         Label labelHolder = robot.lookup("#wrongLogin").queryAs(Label.class);
         TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+
+        robot.clickOn("#button");
+
+        robot.clickOn("#username");
+        robot.write("admin1");
+        robot.clickOn("#button");
+        robot.clickOn("#password");
+        robot.write("1234");
     }
 }
