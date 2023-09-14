@@ -40,4 +40,13 @@ public class MenuTesterFile {
 //        stage.close();
     }
 
+
+    @Test
+    void descTest(){
+        Item item = new Item("bob", "bob is cool", 4.8);
+        item.setDescription("bob is not cool");
+        String a = item.getDescription();
+        assertEquals(a, "bob is not cool");
+    }
+
 }
