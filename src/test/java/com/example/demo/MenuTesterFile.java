@@ -40,4 +40,46 @@ public class MenuTesterFile {
 //        stage.close();
     }
 
+
+    @Test
+    void descTest(){
+        Item item = new Item("bob", "bob is cool", 4.8);
+        item.setDescription("bob is not cool");
+        String a = item.getDescription();
+        assertEquals(a, "bob is not cool");
+    }
+
+    @Test
+    void nameTest(){
+        Item item = new Item("bob", "bob is cool", 4.8);
+        item.setName("david");
+        String a = item.getName();
+        assertEquals(a, "david");
+    }
+
+    @Test
+    void priceTest(){
+        Item item = new Item("bob", "bob is cool", 4.8);
+        item.setPrice(2.11d);
+        double a = item.getPrice();
+        assertEquals(a, 2.11, 0.001);
+    }
+
+
+    @Test
+    void orderFirstTest(){
+        Item item1 = new Item("bob", "bob is cool", 4.8);
+        Item item2 = new Item("burger", "burger is tasty", 14.8);
+        Item item3 = new Item("pizza", "pizza is crispy", 34.6);
+        ArrayList<Item> items = new ArrayList<Item>();
+        items.add(item1);
+        items.add(item2);
+        Order order = new Order(2, items, "July 1st");
+        order.addItem(item3);
+        double t = order.getTotal();
+        long i = order.getOrderID();
+        String s = order.getItems();
+        String d = order.getDate();
+    }
+
 }
