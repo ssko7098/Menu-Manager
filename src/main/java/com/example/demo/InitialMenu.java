@@ -73,6 +73,7 @@ public class InitialMenu implements Initializable {
                 item.setQuantity(event.getNewValue());
             }
         });
+        changeMenu();
         try {
             table.setItems(displayItems());
         } catch (IOException e) {
@@ -90,16 +91,14 @@ public class InitialMenu implements Initializable {
 
         Object menu = parser.parse(new FileReader("menu.json"));
         JSONObject jsonObject = (JSONObject) menu;
-
-        JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
-
-        for (int i = 0; i < catMenu.size(); i++) {
-            JSONObject item = (JSONObject) catMenu.get(i);
-            itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
+            JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
+            for (int i = 0; i < catMenu.size(); i++) {
+                JSONObject item = (JSONObject) catMenu.get(i);
+                itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
+            }
+            table.setItems(itemData);
+            return itemData;
         }
-        table.setItems(itemData);
-        return itemData;
-    }
 
     public void addOrder() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
@@ -132,6 +131,7 @@ public class InitialMenu implements Initializable {
         currentCat.setOnAction((event) -> {
             try {
                 table.getItems().clear();
+                table.setItems(displayItems());
                 this.displayItems();
             } catch (IOException e) {
                 throw new RuntimeException(e);
