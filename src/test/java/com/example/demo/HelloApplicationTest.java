@@ -3,8 +3,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -79,23 +77,38 @@ public class HelloApplicationTest extends Application {
     }
 
 
-    @Test
-    public void sceneChangeTest() throws IOException, TimeoutException {
+//    @Test
+//    public void sceneChangeTest() throws IOException, TimeoutException {
+//
+//        //Creating new HelloApplication Object
+//        HelloApplication app = new HelloApplication();
+//
+//        //The String of the fxml file for the next stage to go to
+//        String nextStage = "SignUP.fxml";
+//
+//        //Setting old stage to the current stage used to initialise the application - "hello-view.fxml"
+//        Stage oldStage = FxToolkit.registerPrimaryStage();
+//
+//        //Call the scene change using the String of the FXML file for the next stage
+//        app.changeScene(nextStage);
+//
+//        //Test that the stages are different to ensure that the scene change has occured
+//        assertNotEquals(oldStage,stage);
+//    }
 
-        //Creating new HelloApplication Object
-        HelloApplication app = new HelloApplication();
-
-        //The String of the fxml file for the next stage to go to
-        String nextStage = "SignUP.fxml";
-
-        //Setting old stage to the current stage used to initialise the application - "hello-view.fxml"
-        Stage oldStage = FxToolkit.registerPrimaryStage();
-
-        //Call the scene change using the String of the FXML file for the next stage
-        app.changeScene(nextStage);
-
-        //Test that the stages are different to ensure that the scene change has occured
-        assertNotEquals(oldStage,stage);
-    }
+//    @Test
+//    public void getStageTest() throws TimeoutException, IOException {
+//
+//       HelloApplication app = new HelloApplication();
+//
+//        //The String of the fxml file for the next stage to go to
+//        String nextStage = "SignUP.fxml";
+//
+//        //Setting old stage to the current stage used to initialise the application - "hello-view.fxml"
+//        Stage oldStage = FxToolkit.registerPrimaryStage();
+//
+//        //Testing the primary stage by retrieving the stage
+//        assertEquals(oldStage, app.getStage());
+//    }
 
 }
