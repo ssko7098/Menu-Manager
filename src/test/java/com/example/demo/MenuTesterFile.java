@@ -49,4 +49,12 @@ public class MenuTesterFile {
         assertEquals(a, "bob is not cool");
     }
 
+    @Test
+    void nameTest(){
+        Item item = new Item("bob", "bob is cool", 4.8);
+        item.setName("david");
+        String a = item.getName();
+        assertEquals(a, "david");
+    }
+
 }
