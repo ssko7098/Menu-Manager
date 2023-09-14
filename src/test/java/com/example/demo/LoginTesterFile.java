@@ -67,11 +67,12 @@ public class LoginTesterFile {
         robot.write("admin1");
         robot.clickOn("#button");
         assertEquals(labelHolder.getText(),"Wrong username or password!");
+        robot.clickOn("#password");
+        robot.write("1234");
 
-        //robot.clickOn("#password");
-        //robot.write("1234");
-
-
+        robot.clickOn("#username");
+        robot.eraseText(6);
+        robot.clickOn("#button");
     }
 }
 
