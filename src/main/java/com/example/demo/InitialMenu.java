@@ -52,6 +52,7 @@ public class InitialMenu implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         table.setEditable(true);
+
         itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
@@ -78,6 +79,7 @@ public class InitialMenu implements Initializable {
         ObservableList<Item> itemData = FXCollections.observableArrayList();
 
         JSONParser parser = new JSONParser();
+
         Object menu = parser.parse(new FileReader("menu.json"));
 
         // convert Object to JSONObject
@@ -87,9 +89,8 @@ public class InitialMenu implements Initializable {
 
         for (int i = 0; i < catMenu.size(); i++) {
             JSONObject item = (JSONObject) catMenu.get(i);
-            itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString()), 0));
-
-        }
+                itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
+            }
         table.setItems(itemData);
         return itemData;
     }
