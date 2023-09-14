@@ -98,4 +98,19 @@ public class HelloApplicationTest extends Application {
         assertNotEquals(oldStage,stage);
     }
 
+    @Test
+    public void getStageTest() throws TimeoutException, IOException {
+
+       HelloApplication app = new HelloApplication();
+
+        //The String of the fxml file for the next stage to go to
+        String nextStage = "SignUP.fxml";
+
+        //Setting old stage to the current stage used to initialise the application - "hello-view.fxml"
+        Stage oldStage = FxToolkit.registerPrimaryStage();
+
+        //Testing the primary stage by retrieving the stage
+        assertEquals(oldStage, app.getStage());
+    }
+
 }
