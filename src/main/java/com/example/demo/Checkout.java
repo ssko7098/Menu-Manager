@@ -2,6 +2,8 @@ package com.example.demo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -74,16 +76,17 @@ public class Checkout implements Initializable {
 
 
     @FXML
-    void toMenu(ActionEvent event) throws IOException, ParseException {
+    void toMenu(ActionEvent event) throws IOException {
         HelloApplication changeOrder = new HelloApplication();
         changeOrder.changeScene("initialMenu.fxml");
-        addToHistory();
+        //addToHistory();
     }
 
     @FXML
-    void toCompletion(ActionEvent event) throws IOException {
+    void toCompletion(ActionEvent event) throws IOException, ParseException {
         HelloApplication toEnd = new HelloApplication();
         toEnd.changeScene("completion.fxml");
+        addToHistory();
     }
 
     @Override
@@ -123,17 +126,25 @@ public class Checkout implements Initializable {
 
         JSONArray orders = new JSONArray();
 
-        for (int i = 0; i < checkoutTable.getItems().size(); i++) {
+        //for (int i = 0; i < checkoutTable.getItems().size(); i++){
+            JSONObject orderDetails = new JSONObject();
+            orderDetails.put("date", java.time.LocalDate.now().toString());
+            JSONArray itemDetails = new JSONArray();
+            for (int j = 0; j < checkoutTable.getItems().size(); j++) {
 
-            JSONObject itemNew = new JSONObject();
+                JSONObject itemNew = new JSONObject();
 
-            itemNew.put("name", item.getCellData(i));
-            itemNew.put("price", price.getCellData(i));
-            itemNew.put("quantity", quantity.getCellData(i));
-            orders.add(itemNew);
-        }
+                itemNew.put("name", item.getCellData(j));
+                itemNew.put("price", price.getCellData(j));
+                itemNew.put("quantity", quantity.getCellData(j));
+                itemDetails.add(itemNew);
+            }
+            orderDetails.put("items", itemDetails);
+            orders.add(orderDetails);
+        //}
+        //System.out.println(orders);
 
-        orderHistory.put("Past Orders", orders);
+        orderHistory.put("Orders", orders);
 
         FileWriter file = new FileWriter("orders.json");
         file.write(orderHistory.toJSONString());
