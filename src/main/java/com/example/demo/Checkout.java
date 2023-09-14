@@ -124,25 +124,23 @@ public class Checkout implements Initializable {
         JSONParser parser = new JSONParser();
         JSONObject orderHistory = (JSONObject) parser.parse(new FileReader("orders.json"));
 
-        JSONArray orders = new JSONArray();
+        JSONArray orders = (JSONArray) orderHistory.get("Orders");
 
-        //for (int i = 0; i < checkoutTable.getItems().size(); i++){
-            JSONObject orderDetails = new JSONObject();
-            orderDetails.put("date", java.time.LocalDate.now().toString());
-            JSONArray itemDetails = new JSONArray();
-            for (int j = 0; j < checkoutTable.getItems().size(); j++) {
+        JSONObject orderDetails = new JSONObject();
+        orderDetails.put("date", java.time.LocalDate.now().toString());
+        JSONArray itemDetails = new JSONArray();
+        for (int j = 0; j < checkoutTable.getItems().size(); j++) {
 
-                JSONObject itemNew = new JSONObject();
+            JSONObject itemNew = new JSONObject();
 
-                itemNew.put("name", item.getCellData(j));
-                itemNew.put("price", price.getCellData(j));
-                itemNew.put("quantity", quantity.getCellData(j));
-                itemDetails.add(itemNew);
-            }
-            orderDetails.put("items", itemDetails);
-            orders.add(orderDetails);
-        //}
-        //System.out.println(orders);
+            itemNew.put("name", item.getCellData(j));
+            itemNew.put("price", price.getCellData(j));
+            itemNew.put("quantity", quantity.getCellData(j));
+            itemDetails.add(itemNew);
+        }
+        orderDetails.put("items", itemDetails);
+        orders.add(orderDetails);
+
 
         orderHistory.put("Orders", orders);
 
