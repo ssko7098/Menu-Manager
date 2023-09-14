@@ -84,5 +84,17 @@ public class LoginTesterFile {
         robot.clickOn("#password");
         robot.write("5");
         robot.clickOn("#button");
+
+        robot.clickOn("#password");
+        robot.eraseText(1);
+        robot.clickOn("#button");
+        assertEquals("Success!",labelHolder.getText());
+    }
+
+    @Test
+    void goToOrderTest(FxRobot robot) throws IOException {
+
+        Label notAdmin = robot.lookup("#notAdmin").queryAs(Label.class);
+        robot.clickOn("#notAdmin");
     }
 }
