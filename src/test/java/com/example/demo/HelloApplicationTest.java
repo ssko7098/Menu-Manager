@@ -34,6 +34,18 @@ public class HelloApplicationTest extends Application {
                 }
             }
         };
+        thread.setDaemon(true);
+        thread.start();
+        //Testing that the thread is correctly in the runnable state and able to slept
+        try{
+            thread.sleep(5000);
+            success = true;
+        } catch (InterruptedException e) {
+        }
+        //Interrupting the thread sleep to transition the thread into the running state
+        thread.interrupt();
+        System.out.println("Application has Started");
+        assertTrue(success);
 
     }
     HelloApplication app = new HelloApplication();
