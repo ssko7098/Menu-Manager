@@ -175,5 +175,33 @@
             <Font name="Microsoft Sans Serif" size="16.0" />
          </font>
       </Button>
+      <Rectangle arcHeight="15.0" arcWidth="15.0" height="44.0" layoutX="24.0" layoutY="493.0" onMouseClicked="#goHome" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" style="-fx-opacity: 3;" width="168.0">
+         <fill>
+            <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27914679050445557" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Button layoutX="24.0" layoutY="493.0" mnemonicParsing="false" onAction="#goHome" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="ADMIN HOME" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
