@@ -32,17 +32,21 @@ public class InitialMenu implements Initializable {
     private TableColumn<Item, String> itemColumn;
 
     @FXML
-    private TableColumn<Item, String> categoryColumn;
+    private ChoiceBox<String> currentCat;
 
     @FXML
     private TableColumn<Item, Integer> quantityColumn;
 
     @FXML
     private TableColumn<Item, Double> priceColumn;
+
     @FXML
     private TableColumn<Item, String> descriptionColumn;
+    @FXML
+    public ObservableList<Item> list = FXCollections.observableArrayList();
 
-    public boolean orderPlaced = false;
+    @FXML
+    public ObservableList<String> availableCats = FXCollections.observableArrayList("Mains", "Desserts");
 
 
     public void goToCart() throws IOException {
@@ -51,9 +55,15 @@ public class InitialMenu implements Initializable {
         viewCart.changeScene("checkout.fxml");
     }
 
+    public void goBack() throws IOException {
 
+        HelloApplication viewCart = new HelloApplication();
+        viewCart.changeScene("hello-view.fxml");
+    }
     public void initialize(URL location, ResourceBundle resources) {
         table.setEditable(true);
+        currentCat.setValue("Mains");
+        currentCat.setItems(availableCats);
 
         itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
@@ -67,6 +77,7 @@ public class InitialMenu implements Initializable {
                 item.setQuantity(event.getNewValue());
             }
         });
+        changeMenu();
         try {
             table.setItems(displayItems());
         } catch (IOException e) {
@@ -83,25 +94,17 @@ public class InitialMenu implements Initializable {
         JSONParser parser = new JSONParser();
 
         Object menu = parser.parse(new FileReader("menu.json"));
-
-//        if (orderPlaced = true){
-//            menu = parser.parse(new FileReader("cart.json"));
-//        }
-//        orderPlaced = true;
-
-
-        // convert Object to JSONObject
         JSONObject jsonObject = (JSONObject) menu;
-
-        JSONArray catMenu = (JSONArray) jsonObject.get("Mains");
-
-        for (int i = 0; i < catMenu.size(); i++) {
-            JSONObject item = (JSONObject) catMenu.get(i);
+            JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
+            for (int i = 0; i < catMenu.size(); i++) {
+                JSONObject item = (JSONObject) catMenu.get(i);
                 itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
             }
-        table.setItems(itemData);
-        return itemData;
-    }
+
+            table.setItems(itemData);
+            return itemData;
+        }
+        
 
     public void addOrder() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
@@ -109,8 +112,8 @@ public class InitialMenu implements Initializable {
 
         JSONArray cart = new JSONArray();
 
-        for(int i = 0; i < table.getItems().size(); i++){
-            if(quantityColumn.getCellData(i) > 0){
+        for (int i = 0; i < table.getItems().size(); i++) {
+            if (quantityColumn.getCellData(i) > 0) {
                 JSONObject itemNew = new JSONObject();
 
                 itemNew.put("name", itemColumn.getCellData(i));
@@ -128,7 +131,27 @@ public class InitialMenu implements Initializable {
         file.write(obj.toJSONString());
         file.flush();
         file.close();
-        }
     }
+
+    public void changeMenu() {
+        currentCat.setOnAction((event) -> {
+            try {
+                table.getItems().clear();
+                table.setItems(displayItems());
+                this.displayItems();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+}
+
+
+
+
+
+
 
 

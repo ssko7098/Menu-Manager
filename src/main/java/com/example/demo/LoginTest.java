@@ -20,33 +20,30 @@ import org.json.simple.parser.ParseException;
 
 public class LoginTest {
 
-    public LoginTest() throws FileNotFoundException {
-    }
-
     public void userLogin() throws IOException, ParseException {
         test();
     }
 
     @FXML
-    private Button button;
+    public Button button;
 
     @FXML
-    private Label wrongLogin;
+    public Label wrongLogin;
 
     @FXML
-    private TextField username;
+    public TextField username;
 
     @FXML
-    private TextField passwordText;
+    public TextField passwordText;
 
     @FXML
-    private PasswordField password;
+    public PasswordField password;
 
     @FXML
-    private ImageView showPassword;
+    public ImageView showPassword;
 
-    Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
-    Image showImage = new Image("/com/example/demo/loginImages/visible.png");
+//    public Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
+//    public Image showImage = new Image("/com/example/demo/loginImages/visible.png");
 
     public void test() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();
@@ -54,7 +51,7 @@ public class LoginTest {
             wrongLogin.setText("Please enter your username and password");
         }
 
-        else if (checkAdmin(username.getText().toString(), password.getText().toString())) {
+        else if (checkAdmin(username.getText(), password.getText())) {
             wrongLogin.setText("Success!");
 
             m.changeScene("afterLogin.fxml");
@@ -83,23 +80,23 @@ public class LoginTest {
         HelloApplication m = new HelloApplication();
         m.changeScene("initialMenu.fxml");
     }
-    public void changeVisibility(){
-
-        showPassword.setImage(showImage);
-        passwordText.setText(password.getText());
-        passwordText.setVisible(true);
-        password.setVisible(false);
-
-
-        //System.out.println("image clicked");
-    }
-    public void changeVisibilityImage(){
-
-        showPassword.setImage(hideImage);
-        password.setText(passwordText.getText());
-        passwordText.setVisible(false);
-        password.setVisible(true);
-        //System.out.println("image released");
-    }
+//    public void changeVisibility(){
+//
+//        showPassword.setImage(showImage);
+//        passwordText.setText(password.getText());
+//        passwordText.setVisible(true);
+//        password.setVisible(false);
+//
+//
+//        //System.out.println("image clicked");
+//    }
+//    public void changeVisibilityImage(){
+//
+//        showPassword.setImage(hideImage);
+//        password.setText(passwordText.getText());
+//        passwordText.setVisible(false);
+//        password.setVisible(true);
+//        //System.out.println("image released");
+//    }
 
 }

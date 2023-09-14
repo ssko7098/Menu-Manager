@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -16,9 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Checkout">
+<AnchorPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Checkout">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="711.0" layoutX="-1.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="1104.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="711.0" layoutX="-1.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="1201.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -50,7 +51,7 @@
             <Font name="Trebuchet MS Italic" size="13.0" />
          </font>
       </Text>
-      <TableView fx:id="table" blendMode="ADD" layoutX="20.0" layoutY="140.0" prefHeight="395.0" prefWidth="307.0">
+      <TableView fx:id="checkoutTable" blendMode="ADD" layoutX="20.0" layoutY="140.0" prefHeight="395.0" prefWidth="307.0">
         <columns>
           <TableColumn fx:id="item" prefWidth="109.0" text="Item" />
           <TableColumn fx:id="quantity" prefWidth="72.0" text="Quantitiy" />
@@ -110,5 +111,9 @@
       <TextField fx:id="Name" layoutX="861.0" layoutY="167.0" promptText="Name" />
       <TextField fx:id="Expiry" layoutX="834.0" layoutY="277.0" prefHeight="26.0" prefWidth="72.0" promptText="Exp. Date" />
       <PasswordField fx:id="CVC" layoutX="932.0" layoutY="277.0" prefHeight="26.0" prefWidth="95.0" promptText="CVC" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="31.0" layoutX="20.0" layoutY="535.0" stroke="WHITE" strokeType="INSIDE" width="152.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="31.0" layoutX="169.0" layoutY="535.0" stroke="WHITE" strokeType="INSIDE" width="158.0" />
+      <Text fill="#9900ff" layoutX="72.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Price:" />
+      <Label fx:id="totalPrice" layoutX="215.0" layoutY="541.0" text="Nil" textFill="#9900ff" />
    </children>
 </AnchorPane>
