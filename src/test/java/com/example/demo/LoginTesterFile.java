@@ -73,5 +73,11 @@ public class LoginTesterFile {
         robot.clickOn("#username");
         robot.eraseText(6);
         robot.clickOn("#button");
+        
+        robot.clickOn("#username");
+        robot.write("adminnnn");
+        robot.clickOn("#button");
+        robot.clickOn("#username");
+        robot.eraseText(8);
     }
 }
