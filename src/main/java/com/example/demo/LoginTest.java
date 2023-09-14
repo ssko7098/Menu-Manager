@@ -42,8 +42,8 @@ public class LoginTest {
     @FXML
     public ImageView showPassword;
 
-    Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
-    Image showImage = new Image("/com/example/demo/loginImages/visible.png");
+    public Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
+    public Image showImage = new Image("/com/example/demo/loginImages/visible.png");
 
     public void test() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();

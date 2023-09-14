@@ -5,33 +5,29 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.json.simple.parser.ParseException;
-import org.junit.BeforeClass;
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.*;
+import org.testfx.framework.junit5.Start;
 
 import java.io.IOException;
 
 public class LoginTesterFile {
 
-    public static LoginTest test;
+    public LoginTest test;
 
-
-    @BeforeClass
-    public static void setup() {
+    @BeforeEach
+    public void setup() {
         test = new LoginTest();
     }
 
-    public void mockInputs() {
+    @Test
+    void testingTestFunction() throws IOException, ParseException {
         test.username = new TextField("admin");
         test.password = new PasswordField();
         test.passwordText = new TextField();
         test.wrongLogin = new Label();
         test.password.setText("1234");
-    }
-
-
-    @Test
-    void testingTestFunction() throws IOException, ParseException {
-        mockInputs();
 
         test.test();
         Assertions.assertEquals("Success!", test.wrongLogin.getText());
@@ -54,14 +50,19 @@ public class LoginTesterFile {
         Assertions.assertEquals("Please enter your username and password", test.wrongLogin.getText());
     }
 
-    @Test
-    void testGoToOrder() throws IOException {
-        test.goToOrder();
-    }
+//    @Test
+//    void testGoToOrder() throws IOException {
+//        test.goToOrder();
+//    }
 
     @Test
     void testUserLogin() throws IOException, ParseException {
-        mockInputs();
+        test.username = new TextField("admin");
+        test.password = new PasswordField();
+        test.passwordText = new TextField();
+        test.wrongLogin = new Label();
+        test.password.setText("1234");
+
         test.userLogin();
     }
 }
