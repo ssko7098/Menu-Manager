@@ -42,6 +42,8 @@ public class InitialMenu implements Initializable {
     @FXML
     private TableColumn<Item, String> descriptionColumn;
 
+    public boolean orderPlaced = false;
+
 
     public void goToCart() throws IOException {
 
@@ -81,6 +83,12 @@ public class InitialMenu implements Initializable {
         JSONParser parser = new JSONParser();
 
         Object menu = parser.parse(new FileReader("menu.json"));
+
+//        if (orderPlaced = true){
+//            menu = parser.parse(new FileReader("cart.json"));
+//        }
+//        orderPlaced = true;
+
 
         // convert Object to JSONObject
         JSONObject jsonObject = (JSONObject) menu;
