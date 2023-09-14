@@ -20,30 +20,27 @@ import org.json.simple.parser.ParseException;
 
 public class LoginTest {
 
-    public LoginTest() throws FileNotFoundException {
-    }
-
     public void userLogin() throws IOException, ParseException {
         test();
     }
 
     @FXML
-    private Button button;
+    public Button button;
 
     @FXML
-    private Label wrongLogin;
+    public Label wrongLogin;
 
     @FXML
-    private TextField username;
+    public TextField username;
 
     @FXML
-    private TextField passwordText;
+    public TextField passwordText;
 
     @FXML
-    private PasswordField password;
+    public PasswordField password;
 
     @FXML
-    private ImageView showPassword;
+    public ImageView showPassword;
 
     Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
     Image showImage = new Image("/com/example/demo/loginImages/visible.png");
@@ -54,7 +51,7 @@ public class LoginTest {
             wrongLogin.setText("Please enter your username and password");
         }
 
-        else if (checkAdmin(username.getText().toString(), password.getText().toString())) {
+        else if (checkAdmin(username.getText(), password.getText())) {
             wrongLogin.setText("Success!");
 
             m.changeScene("afterLogin.fxml");

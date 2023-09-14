@@ -6,11 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.json.simple.parser.ParseException;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
 import org.testfx.api.FxToolkit;
@@ -25,21 +28,22 @@ import static org.junit.Assert.assertNotNull;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
-@ExtendWith(ApplicationExtension.class)
 public class LoginTesterFile {
 
-    public Stage stage;
+    public LoginTest test;
 
     @BeforeEach
-    public void setUp() throws Exception {
-        FxToolkit.registerPrimaryStage();
-        FxToolkit.setupApplication(HelloApplication.class);
+    public void setup() throws FileNotFoundException {
+        test = new LoginTest();
     }
 
-    @AfterEach
-    public void tearDown() throws Exception {
-        FxToolkit.cleanupStages();
-        FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
+    public void mockInputs() {
+        test.username = new TextField("admin");
+        test.password = new PasswordField();
+        test.passwordText = new TextField();
+//        test.showPassword = new ImageView();
+        test.wrongLogin = new Label();
+        test.password.setText("1234");
     }
 
     @Start
@@ -55,24 +59,39 @@ public class LoginTesterFile {
     }
 
     @Test
-    void testingTestFunction(FxRobot robot) throws IOException {
-        Button buttonTester = robot.lookup("#button").queryAs(Button.class);
-        Label labelHolder = robot.lookup("#wrongLogin").queryAs(Label.class);
-        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
-        assertNotNull(buttonTester);
+    void testingTestFunction() throws IOException, ParseException {
+        mockInputs();
 
-        //Testing Login Combinations
-        robot.clickOn("#button");
-        robot.clickOn("#username");
-        robot.write("admin1");
-        robot.clickOn("#button");
-        assertEquals(labelHolder.getText(),"Wrong username or password!");
-        robot.clickOn("#password");
-        robot.write("1234");
+        test.test();
+        Assertions.assertEquals("Success!", test.wrongLogin.getText());
+        Assertions.assertTrue(test.checkAdmin(test.username.getText(), test.password.getText()));
 
-        robot.clickOn("#username");
-        robot.eraseText(6);
-        robot.clickOn("#button");
+        test.username.setText("wrongAdmin");
+
+        test.test();
+        Assertions.assertEquals("Wrong username or password!", test.wrongLogin.getText());
+        Assertions.assertFalse(test.checkAdmin(test.username.getText(), test.password.getText()));
+
+        test.username.setText("admin");
+        test.password.setText("wrongPassword");
+
+        Assertions.assertFalse(test.checkAdmin(test.username.getText(), test.password.getText()));
+
+        test.username.clear();
+        test.password.clear();
+        test.test();
+        Assertions.assertEquals("Please enter your username and password", test.wrongLogin.getText());
+    }
+
+    @Test
+    void testGoToOrder() throws IOException {
+        test.goToOrder();
+    }
+
+    @Test
+    void testUserLogin() throws IOException, ParseException {
+        mockInputs();
+        test.userLogin();
     }
 }
 
