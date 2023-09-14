@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.json.simple.parser.ParseException;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class LoginTesterFile {
     public static LoginTest test;
 
 
-    @BeforeAll
+    @BeforeClass
     public static void setup() {
         test = new LoginTest();
     }
