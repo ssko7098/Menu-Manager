@@ -42,4 +42,21 @@ public class LoginTesterFile {
         FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
     }
 
+    @Start
+    public void start(Stage primaryStage) throws IOException {
+        Stage stage = primaryStage;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        stage.resizableProperty();
+        stage.setTitle("Menu Manager");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @Test
+    void testingTestFunction(FxRobot robot) throws IOException {
+        Button buttonTester = robot.lookup("#button").queryAs(Button.class);
+        Label labelHolder = robot.lookup("#wrongLogin").queryAs(Label.class);
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+    }
 }
