@@ -42,8 +42,6 @@ public class InitialMenu implements Initializable {
 
     @FXML
     private TableColumn<Item, String> descriptionColumn;
-    @FXML
-    public ObservableList<Item> list = FXCollections.observableArrayList();
 
     @FXML
     public ObservableList<String> availableCats = FXCollections.observableArrayList("Mains", "Desserts");
