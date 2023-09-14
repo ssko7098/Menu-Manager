@@ -42,8 +42,8 @@ public class LoginTest {
     @FXML
     public ImageView showPassword;
 
-    public Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
-    public Image showImage = new Image("/com/example/demo/loginImages/visible.png");
+//    public Image hideImage = new Image("/com/example/demo/loginImages/hide.png");
+//    public Image showImage = new Image("/com/example/demo/loginImages/visible.png");
 
     public void test() throws IOException, ParseException {
         HelloApplication m = new HelloApplication();
@@ -80,23 +80,23 @@ public class LoginTest {
         HelloApplication m = new HelloApplication();
         m.changeScene("initialMenu.fxml");
     }
-    public void changeVisibility(){
-
-        showPassword.setImage(showImage);
-        passwordText.setText(password.getText());
-        passwordText.setVisible(true);
-        password.setVisible(false);
-
-
-        //System.out.println("image clicked");
-    }
-    public void changeVisibilityImage(){
-
-        showPassword.setImage(hideImage);
-        password.setText(passwordText.getText());
-        passwordText.setVisible(false);
-        password.setVisible(true);
-        //System.out.println("image released");
-    }
+//    public void changeVisibility(){
+//
+//        showPassword.setImage(showImage);
+//        passwordText.setText(password.getText());
+//        passwordText.setVisible(true);
+//        password.setVisible(false);
+//
+//
+//        //System.out.println("image clicked");
+//    }
+//    public void changeVisibilityImage(){
+//
+//        showPassword.setImage(hideImage);
+//        password.setText(passwordText.getText());
+//        passwordText.setVisible(false);
+//        password.setVisible(true);
+//        //System.out.println("image released");
+//    }
 
 }
