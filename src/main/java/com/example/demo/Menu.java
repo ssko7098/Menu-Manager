@@ -100,7 +100,6 @@ public class Menu implements Initializable {
 
             list.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
         }
-
         clearFields();
     }
 

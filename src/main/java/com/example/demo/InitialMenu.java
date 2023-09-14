@@ -99,7 +99,7 @@ public class InitialMenu implements Initializable {
             JSONObject item = (JSONObject) catMenu.get(i);
                 itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
             }
-        table.setItems(itemData);
+        //table.setItems(itemData);
         return itemData;
     }
 
