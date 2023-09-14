@@ -55,7 +55,11 @@ public class InitialMenu implements Initializable {
         viewCart.changeScene("checkout.fxml");
     }
 
+    public void goBack() throws IOException {
 
+        HelloApplication viewCart = new HelloApplication();
+        viewCart.changeScene("hello-view.fxml");
+    }
     public void initialize(URL location, ResourceBundle resources) {
         table.setEditable(true);
         currentCat.setValue("Mains");
