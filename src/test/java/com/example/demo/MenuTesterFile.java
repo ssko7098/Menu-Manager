@@ -28,6 +28,16 @@ import static org.testfx.util.NodeQueryUtils.hasText;
 
 @ExtendWith(ApplicationExtension.class)
 public class MenuTesterFile {
-    
+    @Start
+    public void start(Stage primaryStage) throws IOException {
+        Stage stage = primaryStage;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("afterLogin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        stage.resizableProperty();
+        stage.setTitle("Menu Manager");
+        stage.setScene(scene);
+        stage.show();
+//        stage.close();
+    }
 
 }
