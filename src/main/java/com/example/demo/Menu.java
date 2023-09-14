@@ -22,49 +22,49 @@ import java.util.ResourceBundle;
 public class Menu implements Initializable {
 
     @FXML
-    private TableView<Item> table;
+    public TableView<Item> table;
 
     @FXML
-    private TableColumn<Item, String> name;
+    public TableColumn<Item, String> name;
 
     @FXML
-    private TableColumn<Item, String> description;
+    public TableColumn<Item, String> description;
 
     @FXML
-    private TableColumn<Item, Double> price;
+    public TableColumn<Item, Double> price;
 
     @FXML
-    private Button AddItem;
+    public Button AddItem;
 
     @FXML
-    private Button removeItem;
+    public Button removeItem;
 
     @FXML
-    private Button updateItem;
+    public Button updateItem;
 
     @FXML
-    private TextField updatedName;
+    public TextField updatedName;
 
     @FXML
-    private TextField updatedDescription;
+    public TextField updatedDescription;
 
     @FXML
-    private TextField updatedPrice;
+    public TextField updatedPrice;
 
     @FXML
-    private TextField newItem;
+    public TextField newItem;
 
     @FXML
-    private TextField newPrice;
+    public TextField newPrice;
 
     @FXML
-    private TextField newDescription;
+    public TextField newDescription;
 
     @FXML
-    private TextField removedItem;
+    public TextField removedItem;
 
     @FXML
-    private ChoiceBox<String> currentCat;
+    public ChoiceBox<String> currentCat;
 
     public ObservableList<Item> list = FXCollections.observableArrayList();
 
