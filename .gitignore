@@ -7,3 +7,11 @@ build
 .idea
 
 .DS_Store
+
+admin.json
+
+cart.json
+
+menu.json
+
+orders.json
