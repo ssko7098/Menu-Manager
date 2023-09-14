@@ -50,7 +50,8 @@ public class Checkout implements Initializable {
     @FXML
     private TextField PostCode;
 
-    private TableView<Item> table;
+    @FXML
+    private TableView<Item> checkoutTable;
 
     @FXML
     private TableColumn<Item, Double> price;
@@ -63,8 +64,9 @@ public class Checkout implements Initializable {
 
     @FXML
     private TableColumn<Item, String> item;
+    public ObservableList<Item> itemInfo = FXCollections.observableArrayList();
 
-    public ObservableList<Item> itemData = FXCollections.observableArrayList();
+    //ObservableList<Item> itemInfo = FXCollections.observableArrayList();
 
 
     @FXML
@@ -79,31 +81,34 @@ public class Checkout implements Initializable {
         toEnd.changeScene("completion.fxml");
     }
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //table.setEditable(true);
         item.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         price.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
         quantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
-        //table.setItems(itemData);
+        try {
+            displayCheckout();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        checkoutTable.setItems(itemInfo);
     }
-    public ObservableList<Item> displayCheckout() throws IOException, ParseException {
 
+    public void displayCheckout() throws IOException, ParseException {
+        //ObservableList<Item> itemInfo = FXCollections.observableArrayList();
 
         JSONParser parser = new JSONParser();
         Object cart = parser.parse(new FileReader("cart.json"));
-        System.out.println(cart.toString());
-        //convert Object to JSONObject
-        //JSONObject Items = (JSONObject) cart;
-        JSONArray Items = (JSONArray) cart;
-        //JSONArray names = (JSONArray) jsonObject.get("name");
+        JSONObject itemsList = (JSONObject) cart;
+        JSONArray items = (JSONArray) itemsList.get("Cart");
 
-        for (int i = 0; i < Items.size(); i++) {
-            JSONObject item = (JSONObject) Items.get(i);
-            itemData.add(new Item(item.get("name").toString(), Integer.parseInt(item.get("price").toString()), Double.parseDouble(item.get("quantity").toString())));
+        for (Object o : items) {
+            JSONObject item = (JSONObject) o;
+            itemInfo.add(new Item(item.get("name").toString(), Double.parseDouble(item.get("price").toString()), Integer.parseInt(item.get("quantity").toString())));
         }
-        table.setItems(itemData);
-        return itemData;
+        //checkoutTable.setItems(itemInfo);
     }
-
 }
 
