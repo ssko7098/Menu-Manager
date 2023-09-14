@@ -149,6 +149,11 @@ public class OrderHistory implements Initializable {
         table.setItems(list);
     }
 
+    public void goHome(ActionEvent event) throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("afterLogin.fxml");
+    }
+
 
     public void createAdmin(ActionEvent event) throws IOException {
         HelloApplication m = new HelloApplication();

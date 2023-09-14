@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,8 +11,9 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AfterLogin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AdminHome">
    <children>
       <Rectangle height="714.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1202.0">
          <fill>
@@ -152,6 +154,56 @@
          </fill>
       </Rectangle>
       <Button layoutX="23.0" layoutY="430.0" mnemonicParsing="false" onAction="#createAdmin" onMouseClicked="#createAdmin" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="NEW ADMIN USER" textFill="WHITE">
+         <font>
+            <Font name="Microsoft Sans Serif" size="16.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="198.0" layoutX="323.0" layoutY="98.0" stroke="WHITE" strokeType="INSIDE" width="288.0" />
+      <Text layoutX="411.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Orders" textAlignment="CENTER" wrappingWidth="99.54244804382324">
+         <font>
+            <Font name="Microsoft Sans Serif" size="16.0" />
+         </font>
+      </Text>
+      <Label fx:id="totalOrders" alignment="CENTER" layoutX="370.0" layoutY="152.0" prefHeight="95.0" prefWidth="195.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Microsoft Sans Serif" size="65.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="198.0" layoutX="700.0" layoutY="100.0" stroke="WHITE" strokeType="INSIDE" width="342.0" />
+      <Text layoutX="803.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Payment" textAlignment="CENTER" wrappingWidth="135.32882499694824">
+         <font>
+            <Font name="Microsoft Sans Serif" size="16.0" />
+         </font>
+      </Text>
+      <Label fx:id="totalAmount" alignment="CENTER" layoutX="740.0" layoutY="150.0" prefHeight="95.0" prefWidth="263.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Microsoft Sans Serif" size="65.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="15.0" arcWidth="15.0" height="44.0" layoutX="24.0" layoutY="492.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" style="-fx-opacity: 3;" width="168.0">
+         <fill>
+            <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.27914679050445557" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.27843138575553894" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5921568870544434" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Button layoutX="24.0" layoutY="492.0" mnemonicParsing="false" onMouseClicked="#goHome" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="ADMIN HOME" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="16.0" />
          </font>
