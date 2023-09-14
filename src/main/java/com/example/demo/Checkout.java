@@ -11,10 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -66,6 +63,10 @@ public class Checkout implements Initializable {
     private TableColumn<Item, String> item;
     public ObservableList<Item> itemInfo = FXCollections.observableArrayList();
 
+    @FXML
+    private Label totalPrice;
+
+
     //ObservableList<Item> itemInfo = FXCollections.observableArrayList();
 
 
@@ -103,11 +104,14 @@ public class Checkout implements Initializable {
         Object cart = parser.parse(new FileReader("cart.json"));
         JSONObject itemsList = (JSONObject) cart;
         JSONArray items = (JSONArray) itemsList.get("Cart");
-
+        double qty = 0;
         for (Object o : items) {
             JSONObject item = (JSONObject) o;
             itemInfo.add(new Item(item.get("name").toString(), Double.parseDouble(item.get("price").toString()), Integer.parseInt(item.get("quantity").toString())));
+            qty += Double.parseDouble(item.get("price").toString()) * Integer.parseInt(item.get("quantity").toString());
         }
+
+        totalPrice.setText("$" + qty);
         //checkoutTable.setItems(itemInfo);
     }
 }
