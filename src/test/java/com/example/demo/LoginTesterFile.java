@@ -60,5 +60,17 @@ public class LoginTesterFile {
         Label labelHolder = robot.lookup("#wrongLogin").queryAs(Label.class);
         TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
         assertNotNull(buttonTester);
+
+        //Testing Login Combinations
+        robot.clickOn("#button");
+        robot.clickOn("#username");
+        robot.write("admin1");
+        robot.clickOn("#button");
+        assertEquals(labelHolder.getText(),"Wrong username or password!");
+
+        //robot.clickOn("#password");
+        //robot.write("1234");
+
+
     }
 }
