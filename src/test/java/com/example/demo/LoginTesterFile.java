@@ -55,6 +55,7 @@ public class LoginTesterFile {
         stage.setTitle("Menu Manager");
         stage.setScene(scene);
         stage.show();
+
     }
 
     @Test
@@ -93,3 +94,4 @@ public class LoginTesterFile {
         test.userLogin();
     }
 }
+
