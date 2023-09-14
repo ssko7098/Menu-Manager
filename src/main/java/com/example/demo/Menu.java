@@ -251,6 +251,11 @@ public class Menu implements Initializable {
         m.changeScene("SignUp.fxml");
     }
 
+    public void goHome(ActionEvent event) throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("afterLogin.fxml");
+    }
+
     public void changeMenu() {
         currentCat.setOnAction((event) -> {
             try {
