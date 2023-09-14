@@ -57,4 +57,12 @@ public class MenuTesterFile {
         assertEquals(a, "david");
     }
 
+    @Test
+    void priceTest(){
+        Item item = new Item("bob", "bob is cool", 4.8);
+        item.setPrice(2.11d);
+        double a = item.getPrice();
+        assertEquals(a, 2.11, 0.001);
+    }
+
 }
