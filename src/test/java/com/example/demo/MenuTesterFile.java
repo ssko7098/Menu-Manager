@@ -65,7 +65,6 @@ public class MenuTesterFile {
         assertEquals(a, 2.11, 0.001);
     }
 
-
     @Test
     void orderFirstTest(){
         Item item1 = new Item("bob", "bob is cool", 4.8);
@@ -80,6 +79,12 @@ public class MenuTesterFile {
         long i = order.getOrderID();
         String s = order.getItems();
         String d = order.getDate();
+    }
+
+    @Test
+    void orderHistoryTest() throws IOException, ParseException {
+        OrderHistory o = new OrderHistory();
+        o.updateOrders();
     }
 
 }
