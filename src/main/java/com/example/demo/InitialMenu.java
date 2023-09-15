@@ -106,7 +106,6 @@ public class InitialMenu implements Initializable {
     }
 
 
-
     public ObservableList<Item> displayItems() throws IOException, ParseException {
 
         ObservableList<Item> itemData = FXCollections.observableArrayList();
@@ -148,19 +147,6 @@ public class InitialMenu implements Initializable {
                 cart.add(itemNew);
             }
         }
-
-//        for (int i = 0; i < table.getItems().size(); i++) {
-//            if (quantityColumn.getCellData(i) > 0) {
-//                JSONObject itemNew = new JSONObject();
-//
-//                itemNew.put("name", itemColumn.getCellData(i));
-//                itemNew.put("price", priceColumn.getCellData(i));
-//                itemNew.put("quantity", quantityColumn.getCellData(i));
-//
-//                cart.add(itemNew);
-//            }
-//        }
-
 
         obj.put("Cart", cart);
 
