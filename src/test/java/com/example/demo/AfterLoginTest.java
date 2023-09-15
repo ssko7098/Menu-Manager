@@ -53,4 +53,30 @@ public class AfterLoginTest {
         stage.setScene(scene);
         stage.show();
     }
+
+    @Test
+    void logOutTest(FxRobot robot) throws TimeoutException, InterruptedException {
+
+        //Seting up the userLogin TextField to be able to get the robot to access it
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Instructions specifying the login details of the Admin User for Testing
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#password");
+        robot.write("1234");
+
+        //Scene Changed Activated via SIGN IN button
+        robot.clickOn("#button");
+
+        //Getting reference to the LogOut Button as it is in a new Stage
+        Button logOutButton = robot.lookup("#logOut").queryAs(Button.class);
+
+        //Setting the oldStage to the Stage associated w/ the afterLogin.fxml
+        Stage oldstage = (Stage) logOutButton.getScene().getWindow();
+
+        //Scene Changed Activated via LOG OUT button
+        robot.clickOn("#logOut");
+
+    }
 }
