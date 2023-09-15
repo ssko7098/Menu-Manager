@@ -19,6 +19,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -26,6 +27,8 @@ import java.util.ResourceBundle;
 public class InitialMenu implements Initializable {
 
     private Map<String, Integer> itemQuantities = new HashMap<>();
+    private ArrayList<Item> updatedItems = new ArrayList<>();
+
 
 
     @FXML
@@ -96,6 +99,7 @@ public class InitialMenu implements Initializable {
             Item item = event.getRowValue();
             item.setQuantity(event.getNewValue());
             itemQuantities.put(item.getName(), event.getNewValue()); // Update the quantity in the data structure
+            updatedItems.add(item);
         });
 
         changeMenu();
@@ -129,17 +133,33 @@ public class InitialMenu implements Initializable {
         JSONObject obj = (JSONObject) parser.parse(new FileReader("cart.json"));
 
         JSONArray cart = new JSONArray();
-        for (int i = 0; i < table.getItems().size(); i++) {
-            if (quantityColumn.getCellData(i) > 0) {
+
+
+        for (Item updatedItem : updatedItems) {
+            String itemName = updatedItem.getName();
+            double itemPrice = updatedItem.getPrice();
+            int quantity = updatedItem.getQuantity();
+
+            if (quantity > 0) {
                 JSONObject itemNew = new JSONObject();
-
-                itemNew.put("name", itemColumn.getCellData(i));
-                itemNew.put("price", priceColumn.getCellData(i));
-                itemNew.put("quantity", quantityColumn.getCellData(i));
-
+                itemNew.put("name", itemName);
+                itemNew.put("price", itemPrice);
+                itemNew.put("quantity", quantity);
                 cart.add(itemNew);
             }
         }
+
+//        for (int i = 0; i < table.getItems().size(); i++) {
+//            if (quantityColumn.getCellData(i) > 0) {
+//                JSONObject itemNew = new JSONObject();
+//
+//                itemNew.put("name", itemColumn.getCellData(i));
+//                itemNew.put("price", priceColumn.getCellData(i));
+//                itemNew.put("quantity", quantityColumn.getCellData(i));
+//
+//                cart.add(itemNew);
+//            }
+//        }
 
 
         obj.put("Cart", cart);
