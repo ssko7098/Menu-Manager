@@ -19,7 +19,7 @@ import org.json.simple.parser.ParseException;
 public class AdminHome implements Initializable {
 
     @FXML
-    private Button logout;
+    private Button logOut;
 
     @FXML
     private Button menuButton;
@@ -30,27 +30,27 @@ public class AdminHome implements Initializable {
     @FXML
     private Label totalAmount;
 
-    public void logOut(ActionEvent event) throws IOException {
+    public void logOut() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("hello-view.fxml");
     }
 
-    public void viewMenu(ActionEvent event) throws IOException {
+    public void viewMenu() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("menu.fxml");
     }
 
-    public void viewOrderHistory(ActionEvent event) throws IOException {
+    public void viewOrderHistory() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("OrderHistory.fxml");
     }
 
-    public void createAdmin(ActionEvent event) throws IOException {
+    public void createAdmin() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("SignUp.fxml");
     }
 
-    public void goHome(ActionEvent event) throws IOException {
+    public void goHome() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("afterLogin.fxml");
     }

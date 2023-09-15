@@ -69,7 +69,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Button fx:id="logout" layoutX="23.0" layoutY="223.0" mnemonicParsing="false" onAction="#logOut" onMouseClicked="#logOut" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="LOG OUT" textFill="WHITE">
+      <Button fx:id="logOut" layoutX="23.0" layoutY="223.0" mnemonicParsing="false" onAction="#logOut" onMouseClicked="#logOut" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="LOG OUT" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="16.0" />
          </font>
