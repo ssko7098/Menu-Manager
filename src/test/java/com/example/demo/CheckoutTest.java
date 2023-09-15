@@ -9,4 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CheckoutTest{
 
+
+    @Test
+    void checkoutTest() {
+        Checkout c = new Checkout();
+    }
 }
