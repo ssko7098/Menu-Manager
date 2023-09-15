@@ -103,4 +103,13 @@ public class MenuTesterFile {
 //        o.searchOrder();
     }
 
+    @Test
+    void itemQuantityTest() throws IOException, ParseException {
+        Item item1 = new Item("bob", "bob is cool", 4.8, 7);
+        item1.setQuantity(8);
+        int a = item1.getQuantity();
+        assertEquals(a,8);
+    }
+
+
 }
