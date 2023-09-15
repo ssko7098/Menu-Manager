@@ -73,18 +73,18 @@ public class AfterLoginTest {
         Button logOutButton = robot.lookup("#logout").queryAs(Button.class);
 
         //Setting the oldStage to the Stage associated w/ the afterLogin.fxml
-        //Stage oldstage = (Stage) logOutButton.getScene().getWindow();
-        //
-        ////Scene Changed Activated via LOG OUT button
-        //robot.clickOn("#logout");
-        //
-        //userLogin = robot.lookup("#username").queryAs(TextField.class);
-        //
-        ////Setting the newStage to the Stage associated w/ the hello-view.fxml
-        //Stage newStage = (Stage)userLogin.getScene().getWindow();
-        //
-        ////Test that the Stages are indeed different
-        //Assertions.assertNotEquals(stage, newStage);
+        Stage oldstage = (Stage) logOutButton.getScene().getWindow();
+
+        //Scene Changed Activated via LOG OUT button
+        robot.clickOn("#logout");
+
+        userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage newStage = (Stage)userLogin.getScene().getWindow();
+
+        //Test that the Stages are indeed different
+        Assertions.assertNotEquals(stage, newStage);
 
     }
 }
