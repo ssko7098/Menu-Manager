@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -18,9 +19,14 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class InitialMenu implements Initializable {
+
+    private Map<String, Integer> itemQuantities = new HashMap<>();
+
 
     @FXML
     private Button cartButton;
@@ -58,6 +64,7 @@ public class InitialMenu implements Initializable {
         HelloApplication viewCart = new HelloApplication();
         viewCart.changeScene("hello-view.fxml");
     }
+
     public void initialize(URL location, ResourceBundle resources) {
         table.setEditable(true);
         currentCat.setValue("Mains");
@@ -66,24 +73,35 @@ public class InitialMenu implements Initializable {
         itemColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
-        quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        quantityColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Item, Integer>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<Item, Integer> event) {
-                Item item = event.getRowValue();
-                item.setQuantity(event.getNewValue());
-            }
-        });
-        changeMenu();
+
         try {
-            table.setItems(displayItems());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
+            for (Item item : displayItems()) {
+                itemQuantities.put(item.getName(), 0);
+            }
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        } catch (ParseException ex) {
+            throw new RuntimeException(ex);
         }
+
+        quantityColumn.setCellValueFactory(cellData -> {
+            String itemName = cellData.getValue().getName();
+            int quantity = itemQuantities.getOrDefault(itemName, 0);
+            return new SimpleIntegerProperty(quantity).asObject();
+        });
+
+        quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
+        quantityColumn.setOnEditCommit(event -> {
+            Item item = event.getRowValue();
+            item.setQuantity(event.getNewValue());
+            itemQuantities.put(item.getName(), event.getNewValue()); // Update the quantity in the data structure
+        });
+
+        changeMenu();
     }
+
+
 
     public ObservableList<Item> displayItems() throws IOException, ParseException {
 
@@ -93,23 +111,24 @@ public class InitialMenu implements Initializable {
 
         Object menu = parser.parse(new FileReader("menu.json"));
         JSONObject jsonObject = (JSONObject) menu;
-            JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
-            for (int i = 0; i < catMenu.size(); i++) {
+        JSONArray catMenu = (JSONArray) jsonObject.get(currentCat.getValue());
+
+        for (int i = 0; i < catMenu.size(); i++) {
                 JSONObject item = (JSONObject) catMenu.get(i);
                 itemData.add(new Item(item.get("name").toString(), item.get("description").toString(), Double.parseDouble(item.get("price").toString())));
             }
 
-            table.setItems(itemData);
+
+        table.setItems(itemData);
             return itemData;
         }
-        
+
 
     public void addOrder() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         JSONObject obj = (JSONObject) parser.parse(new FileReader("cart.json"));
 
         JSONArray cart = new JSONArray();
-
         for (int i = 0; i < table.getItems().size(); i++) {
             if (quantityColumn.getCellData(i) > 0) {
                 JSONObject itemNew = new JSONObject();
@@ -132,10 +151,11 @@ public class InitialMenu implements Initializable {
     }
 
     public void changeMenu() {
-        currentCat.setOnAction((event) -> {
+        currentCat.setOnAction(event -> {
             try {
-                table.getItems().clear();
                 table.setItems(displayItems());
+
+//                table.refresh(); // Refresh the table to reflect the updated quantities
                 this.displayItems();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -144,6 +164,9 @@ public class InitialMenu implements Initializable {
             }
         });
     }
+
+
+
 }
 
 
