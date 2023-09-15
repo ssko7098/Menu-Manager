@@ -111,5 +111,12 @@ public class MenuTesterFile {
         assertEquals(a,8);
     }
 
+    @Test
+    void itemQuantityTest2() throws IOException, ParseException {
+        Item item1 = new Item("bob", 86, 4.8);
+        item1.setQuantity(87);
+        int a = item1.getQuantity();
+        assertEquals(a,87);
+    }
 
 }
