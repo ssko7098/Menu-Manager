@@ -22,6 +22,9 @@ public class AdminHome implements Initializable {
     private Button logout;
 
     @FXML
+    private Button menuButton;
+
+    @FXML
     private Label totalOrders;
 
     @FXML
