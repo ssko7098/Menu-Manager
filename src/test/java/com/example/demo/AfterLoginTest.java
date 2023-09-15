@@ -35,6 +35,7 @@ public class AfterLoginTest {
     public void setUp() throws Exception {
         FxToolkit.registerPrimaryStage();
         FxToolkit.setupApplication(HelloApplication.class);
+        FxToolkit.showStage();
     }
 
     @AfterEach
@@ -70,13 +71,13 @@ public class AfterLoginTest {
         robot.clickOn("#button");
 
         //Getting reference to the LogOut Button as it is in a new Stage
-        Button logOutButton = robot.lookup("#logout").queryAs(Button.class);
+        Button logOutButton = robot.lookup("#logOut").queryAs(Button.class);
 
         //Setting the oldStage to the Stage associated w/ the afterLogin.fxml
         Stage oldstage = (Stage) logOutButton.getScene().getWindow();
 
         //Scene Changed Activated via LOG OUT button
-        robot.clickOn("#logout");
+        robot.clickOn("#logOut");
 
         userLogin = robot.lookup("#username").queryAs(TextField.class);
 
