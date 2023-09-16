@@ -9,8 +9,6 @@ efficiently view the resturants current offerings, view order history, change th
 Which is detailed further down in `insert link to section`.
 
 
----
-
 ## Contributors
 
 * Ethan Acevski `520406429`
@@ -19,9 +17,6 @@ Which is detailed further down in `insert link to section`.
 * Dim Khachumov `xxx`
 * Ryan Tanevski `xxx`
 
-
-
----
 
 ## Login Details
 
@@ -37,5 +32,4 @@ When logging into the Menu Manager you have the option to login in as a guest or
 * To login as guest simply click the `not an admin?` button located above the `SIGN IN` button
 
 
----
 
