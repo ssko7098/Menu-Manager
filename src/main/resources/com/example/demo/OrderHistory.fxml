@@ -45,7 +45,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="726.0" layoutX="-4.0" layoutY="-11.0" stroke="WHITE" strokeType="INSIDE" width="220.0" />
       <ImageView fitHeight="173.0" fitWidth="191.0" layoutX="21.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@loginImages/newLogo.png" />
+            <Image url="@loginImages/ItsAllEatsLogoFinal.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="15.0" arcWidth="15.0" height="44.0" layoutX="23.0" layoutY="223.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" style="-fx-opacity: 3;" width="168.0">

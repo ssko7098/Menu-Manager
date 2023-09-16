@@ -206,7 +206,7 @@
     </Text>
     <ImageView fitHeight="118.0" fitWidth="107.0" layoutX="881.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@loginImages/newLogo.png" />
+            <Image url="@loginImages/ItsAllEatsLogoFinal.png" />
         </image>
     </ImageView>
     <Line endX="303.5" layoutX="815.0" layoutY="267.0" startX="-67.5" strokeWidth="3.0">
