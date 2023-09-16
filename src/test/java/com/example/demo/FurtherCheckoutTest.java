@@ -58,9 +58,10 @@ public class FurtherCheckoutTest {
 
     @Test
     void goToNotAdmin(FxRobot robot) throws IOException {
-
         Label notAdmin = robot.lookup("#notAdmin").queryAs(Label.class);
         robot.clickOn("#notAdmin");
+        robot.clickOn("#cartButton");
+        robot.clickOn("#Payment");
     }
 
 }

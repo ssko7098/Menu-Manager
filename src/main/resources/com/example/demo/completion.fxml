@@ -34,7 +34,7 @@
          </fill></Rectangle>
       <Text fill="WHITE" layoutX="357.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you, the order has been recieved" wrappingWidth="419.38079833984375">
          <font>
-            <Font name="Chalkduster" size="38.0" />
+            <Font name="Trueno Bold" size="38.0" />
          </font>
       </Text>
    </children>
