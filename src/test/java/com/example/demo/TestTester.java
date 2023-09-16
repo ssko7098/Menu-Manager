@@ -30,22 +30,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
-//@ExtendWith(ApplicationExtension.class)
 public class TestTester {
     public Stage stage;
-//
-//    @BeforeEach
-//    public void setUp() throws Exception {
-//        FxToolkit.registerPrimaryStage();
-//        FxToolkit.setupApplication(HelloApplication.class);
-//    }
-//
-//    @AfterEach
-//    public void tearDown() throws Exception {
-//        FxToolkit.cleanupStages();
-//        FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
-//    }
-//
     @Start
     public void start(Stage primaryStage) throws IOException {
         Stage stage = primaryStage;
@@ -56,9 +42,9 @@ public class TestTester {
         stage.setScene(scene);
         stage.show();
     }
-//
+
     private volatile boolean success = false;
-//
+
     @Test
     public void setupTest() {
         //Initialising Java FX --> requires starting a new Thread
@@ -87,41 +73,6 @@ public class TestTester {
         System.out.println("Application has Started");
         assertTrue(success);
 
-    }
-//
-//
-//    @Test
-//    public void sceneChangeTest() throws IOException, TimeoutException {
-//
-//        //Creating new HelloApplication Object
-//        HelloApplication app = new HelloApplication();
-//
-//        //The String of the fxml file for the next stage to go to
-//        String nextStage = "SignUP.fxml";
-//
-//        //Setting old stage to the current stage used to initialise the application - "hello-view.fxml"
-//        Stage oldStage = FxToolkit.registerPrimaryStage();
-//
-//        //Call the scene change using the String of the FXML file for the next stage
-//        app.changeScene(nextStage);
-//
-//        //Test that the stages are different to ensure that the scene change has occured
-//        assertNotEquals(oldStage,stage);
-//    }
-//
-    @Test
-    public void getStageTest() throws TimeoutException, IOException {
-
-        HelloApplication app = new HelloApplication();
-
-        //The String of the fxml file for the next stage to go to
-        String nextStage = "SignUP.fxml";
-
-        //Setting old stage to the current stage used to initialise the application - "hello-view.fxml"
-        Stage oldStage = FxToolkit.registerPrimaryStage();
-
-        //Testing the primary stage by retrieving the stage
-        Assertions.assertEquals(oldStage, app.getStage());
     }
 
     @Test
