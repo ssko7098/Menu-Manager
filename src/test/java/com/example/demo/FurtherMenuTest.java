@@ -147,6 +147,35 @@ public class FurtherMenuTest {
         robot.clickOn("#newPrice");
         robot.write("1.10");
         robot.clickOn("#AddItem");
+
+        robot.clickOn("#newItem");
+        robot.write("abc");
+        robot.clickOn("#newDescription");
+        robot.write("ghi");
+        robot.clickOn("#newPrice");
+        robot.write("2.20");
+        robot.clickOn("#AddItem");
+
+        robot.clickOn("#updatedName");
+        robot.write("abc");
+        robot.clickOn("#updatedDescription");
+        robot.write("fed");
+        robot.clickOn("#updatedPrice");
+        robot.write("1.20");
+        robot.clickOn("#updateItem");
+
+        robot.clickOn("#updatedName");
+        robot.write("abc");
+        robot.clickOn("#updatedPrice");
+        robot.write("1.30");
+        robot.clickOn("#updateItem");
+
+        robot.clickOn("#updatedName");
+        robot.write("abc");
+        robot.clickOn("#updatedDescription");
+        robot.write("xyz");
+        robot.clickOn("#updateItem");
+
         robot.clickOn("#removedItem");
         robot.write("abc");
         robot.clickOn("#removeItem");
@@ -168,6 +197,5 @@ public class FurtherMenuTest {
         //Test that the Stages are indeed different
         Assertions.assertNotEquals(stage, newStage);
     }
-
 
 }
