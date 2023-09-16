@@ -41,6 +41,10 @@ dependencies {
 }
 
 test {
+  jvmArgs "-Dheadless=${project.hasProperty('headless') ? project.headless : false}"
+}
+
+test {
 useJUnitPlatform()}
 
 jlink {
