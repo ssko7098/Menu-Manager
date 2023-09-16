@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
-//@ExtendWith(ApplicationExtension.class)
+@ExtendWith(ApplicationExtension.class)
 public class TestTester {
     public Stage stage;
 
