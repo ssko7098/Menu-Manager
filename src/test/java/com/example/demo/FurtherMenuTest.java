@@ -55,6 +55,40 @@ public class FurtherMenuTest {
         stage.show();
     }
 
+    @Test
+    void logOutMenuTest(FxRobot robot) throws TimeoutException, InterruptedException {
+
+        //Seting up the userLogin TextField to be able to get the robot to access it
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Instructions specifying the login details of the Admin User for Testing
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#password");
+        robot.write("1234");
+
+        //Scene Changed Activated via SIGN IN button
+        robot.clickOn("#button");
+        robot.clickOn("#menuButton");
+
+        //Getting reference to the LogOut Button as it is in a new Stage
+        Button logOutButton = robot.lookup("#logout").queryAs(Button.class);
+
+        //Setting the oldStage to the Stage associated w/ the afterLogin.fxml
+        Stage oldstage = (Stage) logOutButton.getScene().getWindow();
+
+        //Scene Changed Activated via LOG OUT button
+        robot.clickOn("#logout");
+
+        userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage newStage = (Stage)userLogin.getScene().getWindow();
+
+        //Test that the Stages are indeed different
+        Assertions.assertNotEquals(stage, newStage);
+
+    }
 
 
 }
