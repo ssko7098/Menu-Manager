@@ -76,7 +76,7 @@ Which is detailed further down in `insert link to section`.
 
 ---
 
-## Contributors:
+## Contributors
 
 * Ethan Acevski `520406429`
 * Sebstian Skontos `xxx`
@@ -84,6 +84,23 @@ Which is detailed further down in `insert link to section`.
 * Dim Khachumov `xxx`
 * Ryan Tanevski `xxx`
 
-***
+
 
 ---
+
+## Login Details
+
+When logging into the Menu Manager you have the option to login in as a guest or as an admin
+
+### Login Details for Admin:
+
+* Admin Username: "admin"
+* Admin Password: "1234"
+
+### Logging as Guest:
+
+* To login as guest simply click the `not an admin?` button located above the `SIGN IN` button
+
+
+---
+
