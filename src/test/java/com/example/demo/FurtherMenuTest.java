@@ -140,6 +140,17 @@ public class FurtherMenuTest {
         robot.clickOn("#button");
         robot.clickOn("#menuButton");
 
+        robot.clickOn("#newItem");
+        robot.write("abc");
+        robot.clickOn("#newDescription");
+        robot.write("def");
+        robot.clickOn("#newPrice");
+        robot.write("1.10");
+        robot.clickOn("#AddItem");
+        robot.clickOn("#removedItem");
+        robot.write("abc");
+        robot.clickOn("#removeItem");
+
         //Getting reference to the newAdminUserButton Button as it is in a new Stage
         Button newAdminUserButton = robot.lookup("#newAdminUserButtonMenu").queryAs(Button.class);
 
