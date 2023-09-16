@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -32,10 +35,19 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
-      <Text fill="WHITE" layoutX="357.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you, the order has been recieved" wrappingWidth="419.38079833984375">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutX="230.0" layoutY="106.0" stroke="WHITE" strokeType="INSIDE" width="753.0" />
+      <Text fill="#9500ff" layoutX="210.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you, the order has been recieved" textAlignment="CENTER" wrappingWidth="776.6422119140625">
          <font>
-            <Font name="Chalkduster" size="38.0" />
+            <Font name="Microsoft Sans Serif" size="38.0" />
          </font>
       </Text>
+      <ImageView fitHeight="63.0" fitWidth="58.0" layoutX="31.0" layoutY="29.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginImages/BackArrow.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>
