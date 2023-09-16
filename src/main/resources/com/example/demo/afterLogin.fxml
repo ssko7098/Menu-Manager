@@ -125,7 +125,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Button layoutX="23.0" layoutY="360.0" mnemonicParsing="false" onAction="#viewOrderHistory" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="ORDER HISTORY" textFill="WHITE">
+      <Button fx:id="orderHistoryButton" layoutX="23.0" layoutY="360.0" mnemonicParsing="false" onAction="#viewOrderHistory" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="ORDER HISTORY" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="16.0" />
          </font>
