@@ -64,3 +64,14 @@ h1{
         <img src="src/main/resources/com/example/demo/readme/java.png" alt="java">
     </div>
 </div>
+
+## Introduction
+`ItsAllEats` is a robust menu manager software application in Java. ItsAllEats purpose is to revolutionise
+the ability of Restaurant Owners and Franchisers to manage and view their inventory, orders, and customers.
+
+Our software provides a centralised location where admin users such as owners and operators are able to
+efficiently view the resturants current offerings, view order history, change the current menu and more.
+Which is detailed further down in `insert link to section`.
+
+
+---
