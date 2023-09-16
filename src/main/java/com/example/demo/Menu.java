@@ -72,6 +72,17 @@ public class Menu implements Initializable {
 
     public ObservableList<String> availableCats = FXCollections.observableArrayList("Mains", "Desserts");
 
+    @FXML
+    private Button logout;
+    @FXML
+    private Button menuButtonMenu;
+    @FXML
+    private Button newAdminUserButtonMenu;
+    @FXML
+    private Button orderHistoryButtonMenu;
+    @FXML
+    private Button adminHomeButtonMenu;
+
     public void clearFields() {
         updatedName.clear();
         updatedDescription.clear();
