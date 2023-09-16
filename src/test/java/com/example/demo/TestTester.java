@@ -30,21 +30,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
-@ExtendWith(ApplicationExtension.class)
+//@ExtendWith(ApplicationExtension.class)
 public class TestTester {
     public Stage stage;
-
-    @BeforeEach
-    public void setUp() throws Exception {
-        FxToolkit.registerPrimaryStage();
-        FxToolkit.setupApplication(HelloApplication.class);
-    }
-
-    @AfterEach
-    public void tearDown() throws Exception {
-        FxToolkit.cleanupStages();
-        FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
-    }
+//
+//    @BeforeEach
+//    public void setUp() throws Exception {
+//        FxToolkit.registerPrimaryStage();
+//        FxToolkit.setupApplication(HelloApplication.class);
+//    }
+//
+//    @AfterEach
+//    public void tearDown() throws Exception {
+//        FxToolkit.cleanupStages();
+//        FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
+//    }
 //
 //    @Start
 //    public void start(Stage primaryStage) throws IOException {
