@@ -41,7 +41,7 @@
             <Font name="Microsoft Sans Serif" size="38.0" />
          </font>
       </Text>
-      <ImageView fitHeight="63.0" fitWidth="58.0" layoutX="31.0" layoutY="29.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backButtonImageCompletion" fitHeight="63.0" fitWidth="58.0" layoutX="31.0" layoutY="29.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@loginImages/BackArrow.png" />
          </image>

@@ -76,6 +76,7 @@ public class AfterLoginTest {
         //Setting the oldStage to the Stage associated w/ the afterLogin.fxml
         Stage oldstage = (Stage) logOutButton.getScene().getWindow();
 
+        robot.clickOn("#adminHomeButtonMain");
         //Scene Changed Activated via LOG OUT button
         robot.clickOn("#logOut");
 

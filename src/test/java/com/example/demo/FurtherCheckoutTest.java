@@ -75,6 +75,13 @@ public class FurtherCheckoutTest {
 
     @Test
     void goToNotAdmin2(FxRobot robot) throws IOException {
+        robot.clickOn("#notAdmin");
+        robot.clickOn("#cartButton");
+        robot.clickOn("#Payment");
+
+        robot.clickOn("#backButtonImageCompletion");
+
+        robot.clickOn("#username");
 
         TextField u = robot.lookup("#username").queryAs(TextField.class);
 
@@ -89,7 +96,7 @@ public class FurtherCheckoutTest {
         //Setting the newStage to the Stage associated w/ the hello-view.fxml
         Stage newStage = (Stage) v.getScene().getWindow();
 
-        //Test that the Stages are indeed different
+        //Test that the Stages are not different
         Assertions.assertEquals(oldStage, newStage);
     }
 
