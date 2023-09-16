@@ -153,7 +153,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Button layoutX="23.0" layoutY="430.0" mnemonicParsing="false" onAction="#createAdmin" onMouseClicked="#createAdmin" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="NEW ADMIN USER" textFill="WHITE">
+      <Button fx:id="newAdminUserButton" layoutX="23.0" layoutY="430.0" mnemonicParsing="false" onAction="#createAdmin" onMouseClicked="#createAdmin" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="NEW ADMIN USER" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="16.0" />
          </font>
