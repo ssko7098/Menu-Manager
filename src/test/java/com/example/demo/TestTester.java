@@ -26,4 +26,9 @@ import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
 public class TestTester {
+
+    @Test
+    void checkoutTest() {
+        HelloController c = new HelloController();
+    }
 }
