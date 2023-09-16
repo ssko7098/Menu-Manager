@@ -125,7 +125,7 @@ public class TestTester {
 //    }
 
     @Test
-    void checkoutTest() {
+    void controllerTest() {
         HelloController c = new HelloController();
     }
 
