@@ -36,7 +36,7 @@
             </LinearGradient>
          </fill></Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutX="230.0" layoutY="106.0" stroke="WHITE" strokeType="INSIDE" width="753.0" />
-      <Text fill="#9500ff" layoutX="210.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you, the order has been recieved" textAlignment="CENTER" wrappingWidth="776.6422119140625">
+      <Text fx:id="thanks" fill="#9500ff" layoutX="210.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you, the order has been recieved" textAlignment="CENTER" wrappingWidth="776.6422119140625">
          <font>
             <Font name="Microsoft Sans Serif" size="38.0" />
          </font>

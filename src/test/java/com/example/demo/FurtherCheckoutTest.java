@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -62,6 +63,34 @@ public class FurtherCheckoutTest {
         robot.clickOn("#notAdmin");
         robot.clickOn("#cartButton");
         robot.clickOn("#Payment");
+
+        Text u = robot.lookup("#thanks").queryAs(Text.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage newStage = (Stage) u.getScene().getWindow();
+
+        //Test that the Stages are indeed different
+        Assertions.assertNotEquals(stage, newStage);
+    }
+
+    @Test
+    void goToNotAdmin2(FxRobot robot) throws IOException {
+
+        TextField u = robot.lookup("#username").queryAs(TextField.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage oldStage = (Stage) u.getScene().getWindow();
+        Label notAdmin = robot.lookup("#notAdmin").queryAs(Label.class);
+        robot.clickOn("#notAdmin");
+        robot.clickOn("#goBackInitMenuButton");
+
+        TextField v = robot.lookup("#username").queryAs(TextField.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage newStage = (Stage) v.getScene().getWindow();
+
+        //Test that the Stages are indeed different
+        Assertions.assertEquals(oldStage, newStage);
     }
 
 }
