@@ -90,5 +90,39 @@ public class FurtherMenuTest {
 
     }
 
+    @Test
+    void viewOrderMenuHistory(FxRobot robot) throws TimeoutException, InterruptedException {
+
+        //Seting up the userLogin TextField to be able to get the robot to access it
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Instructions specifying the login details of the Admin User for Testing
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#password");
+        robot.write("1234");
+
+        //Scene Changed Activated via SIGN IN button
+        robot.clickOn("#button");
+        robot.clickOn("#menuButton");
+
+        //Getting reference to the orderHistoryButton Button as it is in a new Stage
+        Button orderHistoryButton = robot.lookup("#orderHistoryButtonMenu").queryAs(Button.class);
+
+        //Setting the oldStage to the Stage associated w/ the afterLogin.fxml
+        Stage oldstage = (Stage) orderHistoryButton.getScene().getWindow();
+
+        //Scene Changed Activated via ORDER HISTORY button
+        robot.clickOn("#orderHistoryButtonMenu");
+        //Getting reference to the orderNumber TextField as it is in a new Stage
+        TextField orderNumber = robot.lookup("#orderNumber").queryAs(TextField.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage newStage = (Stage) orderNumber.getScene().getWindow();
+
+        //Test that the Stages are indeed different
+        Assertions.assertNotEquals(stage, newStage);
+    }
+
 
 }
