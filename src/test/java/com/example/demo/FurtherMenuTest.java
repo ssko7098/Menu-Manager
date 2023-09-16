@@ -124,5 +124,39 @@ public class FurtherMenuTest {
         Assertions.assertNotEquals(stage, newStage);
     }
 
+    @Test
+    void createAdminMenuTest(FxRobot robot) throws TimeoutException, InterruptedException {
+
+        //Seting up the userLogin TextField to be able to get the robot to access it
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Instructions specifying the login details of the Admin User for Testing
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#password");
+        robot.write("1234");
+
+        //Scene Changed Activated via SIGN IN button
+        robot.clickOn("#button");
+        robot.clickOn("#menuButton");
+
+        //Getting reference to the newAdminUserButton Button as it is in a new Stage
+        Button newAdminUserButton = robot.lookup("#newAdminUserButtonMenu").queryAs(Button.class);
+
+        //Setting the oldStage to the Stage associated w/ the afterLogin.fxml
+        Stage oldstage = (Stage) newAdminUserButton.getScene().getWindow();
+
+        //Scene Changed Activated via LOG OUT button
+        robot.clickOn("#newAdminUserButtonMenu");
+        //Getting reference to the userLogin TextField as it is in a new Stage
+        userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage newStage = (Stage) userLogin.getScene().getWindow();
+
+        //Test that the Stages are indeed different
+        Assertions.assertNotEquals(stage, newStage);
+    }
+
 
 }
