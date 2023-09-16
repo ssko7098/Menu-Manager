@@ -75,3 +75,15 @@ Which is detailed further down in `insert link to section`.
 
 
 ---
+
+## Contributors:
+
+* Ethan Acevski `520406429`
+* Sebstian Skontos `xxx`
+* Alex Photios `xxx`
+* Dim Khachumov `xxx`
+* Ryan Tanevski `xxx`
+
+***
+
+---
