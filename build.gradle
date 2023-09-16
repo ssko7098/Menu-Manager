@@ -50,7 +50,3 @@ jlink {
     name = 'app'
   }
 }
-
-jlinkZip {
-  group = 'distribution'
-}
