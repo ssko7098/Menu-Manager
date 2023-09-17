@@ -39,5 +39,13 @@ When logging into the Menu Manager you have the option to login in as a guest or
 
 ## Instructions on Collaborating/Contributing on GitHub Repository
 
+1. Perform Git clone - git clone : https://github.sydney.edu.au/SOFT2412-COMP9412-2023S2/Lab29-Huaicheng-Group1-A1.git
+2. Create branch on local repo: git switch -c "Branch Name"
+3. Set Upstream branch to push changes to: git branch --set-upstream-to origin/"Branch Name"
+4. Add changes to the local git repo stage: git add -a "file name"
+5. Commit changes to local repo: git commit -m "enter message"
+6. Push changes to GitHub Branch: git push
+7. Review and merge changes with Main branch: Go to respective Branch --> Complete Pull Request
+
 
 
