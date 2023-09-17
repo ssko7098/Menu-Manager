@@ -96,9 +96,26 @@ public class SignUpTest {
         robot.eraseText(5);
         robot.clickOn("#button1");
 
+        robot.clickOn("#username");
+        robot.write("testAdmin");
+        robot.clickOn("#password");
+        robot.write("5");
+        robot.clickOn("#button1");
+        robot.clickOn("#username");
+        robot.write("testAdmin");
+        robot.clickOn("#password");
+        robot.write("12345");
+        robot.clickOn("#button");
+        robot.clickOn("#logOut");
+
         FileWriter file = new FileWriter("admin.json");
         file.write(obj.toJSONString());
         file.flush();
+
+
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+        Stage newStage = (Stage)userLogin.getScene().getWindow();
+        Assertions.assertNotEquals(stage, newStage);
 
     }
 }
