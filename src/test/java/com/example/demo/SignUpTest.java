@@ -12,9 +12,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
@@ -30,14 +34,90 @@ import static org.testfx.util.NodeQueryUtils.hasText;
 
 @ExtendWith(ApplicationExtension.class)
 public class SignUpTest {
+
+    public Stage stage;
+
+    @BeforeEach
+    public void setUp() throws Exception {
+        FxToolkit.registerPrimaryStage();
+        FxToolkit.setupApplication(HelloApplication.class);
+    }
+
+    @AfterEach
+    public void tearDown() throws Exception {
+        FxToolkit.cleanupStages();
+        FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
+    }
+
     @Start
     public void start(Stage primaryStage) throws IOException {
         Stage stage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.resizableProperty();
         stage.setTitle("Menu Manager");
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Test
+    void testingSignUp(FxRobot robot) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader = new FileReader("admin.json");
+        JSONArray obj = (JSONArray) jsonParser.parse(reader);
+
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#password");
+        robot.write("1234");
+        robot.clickOn("#button");
+        robot.clickOn("#newAdminUserButton");
+        robot.clickOn("#backSignUpButton");
+        robot.clickOn("#newAdminUserButton");
+
+        Button buttonTester = robot.lookup("#button1").queryAs(Button.class);
+        assertNotNull(buttonTester);
+
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.write("1");
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.eraseText(1);
+        robot.clickOn("#password");
+        robot.write("1234");
+        robot.clickOn("#showPassword");
+
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.eraseText(5);
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.write("testAdmin");
+        robot.clickOn("#password");
+        robot.write("5");
+        robot.clickOn("#button1");
+        robot.clickOn("#username");
+        robot.write("testAdmin");
+        robot.clickOn("#password");
+        robot.write("12345");
+        robot.clickOn("#button");
+        robot.clickOn("#logOut");
+
+        FileWriter file = new FileWriter("admin.json");
+        file.write(obj.toJSONString());
+        file.flush();
+        
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+        Stage newStage = (Stage)userLogin.getScene().getWindow();
+        Assertions.assertNotEquals(stage, newStage);
     }
 }
