@@ -26,7 +26,7 @@ import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
 @ExtendWith(ApplicationExtension.class)
-public class LoginTesterFile {
+public class AdminLoginTest {
 
     public Stage stage;
 

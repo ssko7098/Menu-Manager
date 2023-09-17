@@ -39,7 +39,7 @@ import static org.junit.Assert.*;
 import org.json.simple.parser.ParseException;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class MenuTesterFile {
+public class MenuTest {
     @Test
     void descTest(){
         Item item = new Item("bob", "bob is cool", 4.8);

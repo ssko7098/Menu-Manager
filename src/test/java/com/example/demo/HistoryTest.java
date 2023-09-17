@@ -79,7 +79,7 @@ public class HistoryTest {
         robot.clickOn("#ahOHButton");
         robot.clickOn("#orderHistoryButton");
         robot.clickOn("#logOutOHButton");
-        
+
         userLogin = robot.lookup("#username").queryAs(TextField.class);
 
         //Setting the newStage to the Stage associated w/ the hello-view.fxml
