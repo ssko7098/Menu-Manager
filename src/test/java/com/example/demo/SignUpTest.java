@@ -12,9 +12,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
@@ -37,6 +41,7 @@ import org.testfx.api.FxToolkit;
 public class SignUpTest {
 
     public Stage stage;
+    
     @BeforeEach
     public void setUp() throws Exception {
         FxToolkit.registerPrimaryStage();
@@ -48,6 +53,7 @@ public class SignUpTest {
         FxToolkit.cleanupStages();
         FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
     }
+    
     @Start
     public void start(Stage primaryStage) throws IOException {
         Stage stage = primaryStage;
@@ -58,6 +64,7 @@ public class SignUpTest {
         stage.setScene(scene);
         stage.show();
     }
+    
     @Test
     void testingSignUp(FxRobot robot) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
@@ -72,10 +79,12 @@ public class SignUpTest {
         robot.clickOn("#newAdminUserButton");
         robot.clickOn("#backSignUpButton");
         robot.clickOn("#newAdminUserButton");
+        
         Button buttonTester = robot.lookup("#button1").queryAs(Button.class);
         assertNotNull(buttonTester);
 
         robot.clickOn("#button1");
+        
         robot.clickOn("#username");
         robot.write("admin");
         robot.clickOn("#button1");
@@ -111,8 +120,7 @@ public class SignUpTest {
         FileWriter file = new FileWriter("admin.json");
         file.write(obj.toJSONString());
         file.flush();
-
-
+        
         TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
         Stage newStage = (Stage)userLogin.getScene().getWindow();
         Assertions.assertNotEquals(stage, newStage);
