@@ -210,7 +210,7 @@
             <Font name="Microsoft Sans Serif" size="16.0" />
          </font>
       </Button>
-      <ImageView fitHeight="63.0" fitWidth="58.0" layoutX="21.0" layoutY="19.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backSignUpButton" fitHeight="63.0" fitWidth="58.0" layoutX="21.0" layoutY="19.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@loginImages/BackArrow.png" />
          </image>
