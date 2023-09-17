@@ -28,8 +28,26 @@ import static org.junit.Assert.assertNotNull;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.testfx.api.FxToolkit;
+
 @ExtendWith(ApplicationExtension.class)
 public class SignUpTest {
+
+    public Stage stage;
+    @BeforeEach
+    public void setUp() throws Exception {
+        FxToolkit.registerPrimaryStage();
+        FxToolkit.setupApplication(HelloApplication.class);
+    }
+
+    @AfterEach
+    public void tearDown() throws Exception {
+        FxToolkit.cleanupStages();
+        FxToolkit.cleanupApplication(HelloApplication.class.newInstance());
+    }
     @Start
     public void start(Stage primaryStage) throws IOException {
         Stage stage = primaryStage;
