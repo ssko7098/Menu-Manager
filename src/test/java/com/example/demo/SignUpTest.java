@@ -68,6 +68,10 @@ public class SignUpTest {
         robot.clickOn("#newAdminUserButton");
         robot.clickOn("#backSignUpButton");
         robot.clickOn("#newAdminUserButton");
+        Button buttonTester = robot.lookup("#button1").queryAs(Button.class);
+        assertNotNull(buttonTester);
+
+        robot.clickOn("#button1");
 
     }
 }
