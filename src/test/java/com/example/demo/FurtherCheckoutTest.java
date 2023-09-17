@@ -84,6 +84,7 @@ public class FurtherCheckoutTest {
         file.flush();
 
 
+
         //Test that the Stages are indeed different
         Assertions.assertNotEquals(stage, newStage);
     }

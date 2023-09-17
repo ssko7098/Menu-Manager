@@ -39,21 +39,7 @@ import static org.junit.Assert.*;
 import org.json.simple.parser.ParseException;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-//@ExtendWith(ApplicationExtension.class)
 public class MenuTesterFile {
-//    @Start
-//    public void start(Stage primaryStage) throws IOException {
-//        Stage stage = primaryStage;
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("afterLogin.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
-//        stage.resizableProperty();
-//        stage.setTitle("Menu Manager");
-//        stage.setScene(scene);
-//        stage.show();
-////        stage.close();
-//    }
-
-
     @Test
     void descTest(){
         Item item = new Item("bob", "bob is cool", 4.8);
