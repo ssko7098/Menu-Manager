@@ -42,9 +42,9 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Text fill="WHITE" layoutX="365.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout" wrappingWidth="222.50033594683669">
+      <Text fill="WHITE" layoutX="365.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout" underline="true" wrappingWidth="222.50033594683669">
          <font>
-            <Font name="Futura Medium" size="26.0" />
+            <Font name="Microsoft Sans Serif" size="26.0" />
          </font></Text>
       <Text fill="WHITE" layoutX="72.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Summary" wrappingWidth="91.45703125">
          <font>
