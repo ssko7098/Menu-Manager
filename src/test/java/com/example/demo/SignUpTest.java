@@ -90,6 +90,12 @@ public class SignUpTest {
         robot.write("1234");
         robot.clickOn("#showPassword");
 
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.eraseText(5);
+        robot.clickOn("#button1");
+
         FileWriter file = new FileWriter("admin.json");
         file.write(obj.toJSONString());
         file.flush();
