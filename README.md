@@ -6,7 +6,6 @@ the ability of Restaurant Owners and Franchisers to manage and view their invent
 
 Our software provides a centralised location where admin users such as owners and operators are able to
 efficiently view the resturants current offerings, view order history, change the current menu and more.
-Which is detailed further down in `insert link to section`.
 
 
 ## Contributors
