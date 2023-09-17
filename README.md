@@ -12,7 +12,7 @@ Which is detailed further down in `insert link to section`.
 ## Contributors
 
 * Ethan Acevski `520406429`
-* Sebstian Skontos `xxx`
+* Sebstian Skontos `520466010`
 * Alex Photios `xxx`
 * Dim Khachumov `xxx`
 * Ryan Tanevski `xxx`
@@ -29,7 +29,7 @@ When logging into the Menu Manager you have the option to login in as a guest or
 
 ### Logging as Guest:
 
-* To login as guest simply click the `not an admin?` button located above the `SIGN IN` button
+* To login as guest simply click the `not an admin?` button located below the `SIGN IN` button
 
 
 
