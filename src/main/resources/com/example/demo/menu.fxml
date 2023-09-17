@@ -299,7 +299,7 @@
          </font>
       </Button>
       <ChoiceBox fx:id="currentCat" layoutX="300.0" layoutY="20.0" onMousePressed="#changeMenu" prefWidth="150.0" />
-      <Rectangle arcHeight="15.0" arcWidth="15.0" height="44.0" layoutX="24.0" layoutY="501.0" onDragDetected="#goHome" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" style="-fx-opacity: 3;" width="168.0">
+      <Rectangle arcHeight="15.0" arcWidth="15.0" height="44.0" layoutX="24.0" layoutY="495.0" onDragDetected="#goHome" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" style="-fx-opacity: 3;" width="168.0">
          <fill>
             <LinearGradient endX="0.819477434679335" endY="0.7482185273159145">
                <stops>
@@ -322,7 +322,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Button fx:id="adminHomeButtonMenu" layoutX="24.0" layoutY="501.0" mnemonicParsing="false" onAction="#goHome" onMouseClicked="#goHome" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="ADMIN HOME" textFill="WHITE">
+      <Button fx:id="adminHomeButtonMenu" layoutX="24.0" layoutY="495.0" mnemonicParsing="false" onAction="#goHome" onMouseClicked="#goHome" prefHeight="44.0" prefWidth="168.0" style="-fx-background-radius: 5; -fx-background-color: 0;" text="ADMIN HOME" textFill="WHITE">
          <font>
             <Font name="Microsoft Sans Serif" size="16.0" />
          </font>
