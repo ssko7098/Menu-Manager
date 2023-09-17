@@ -56,7 +56,7 @@ public class HistoryTest {
     }
 
     @Test
-    void logOutMenuTest(FxRobot robot) throws TimeoutException, InterruptedException {
+    void searchHistoryLogoutTest(FxRobot robot) throws TimeoutException, InterruptedException {
 
         //Seting up the userLogin TextField to be able to get the robot to access it
         TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
@@ -73,6 +73,20 @@ public class HistoryTest {
 
         robot.clickOn("#orderNumber");
         robot.write("2");
+
+        robot.clickOn("#menuOHButton");
+        robot.clickOn("#orderHistoryButtonMenu");
+        robot.clickOn("#ahOHButton");
+        robot.clickOn("#orderHistoryButton");
+        robot.clickOn("#logOutOHButton");
+        
+        userLogin = robot.lookup("#username").queryAs(TextField.class);
+
+        //Setting the newStage to the Stage associated w/ the hello-view.fxml
+        Stage newStage = (Stage)userLogin.getScene().getWindow();
+
+        //Test that the Stages are indeed different
+        Assertions.assertNotEquals(stage, newStage);
 
     }
 

@@ -44,12 +44,12 @@ public class OrderHistory implements Initializable {
 
     public ObservableList<Order> list = FXCollections.observableArrayList();
 
-    public void logOut(ActionEvent event) throws IOException {
+    public void logOut() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("hello-view.fxml");
     }
 
-    public void viewOrders(ActionEvent event) throws IOException {
+    public void viewOrders() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("menu.fxml");
     }
@@ -82,7 +82,7 @@ public class OrderHistory implements Initializable {
         }
     }
 
-    public void viewMenu(ActionEvent event) throws IOException {
+    public void viewMenu() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("menu.fxml");
     }
@@ -149,13 +149,13 @@ public class OrderHistory implements Initializable {
         table.setItems(list);
     }
 
-    public void goHome(ActionEvent event) throws IOException {
+    public void goHome() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("afterLogin.fxml");
     }
 
 
-    public void createAdmin(ActionEvent event) throws IOException {
+    public void createAdmin() throws IOException {
         HelloApplication m = new HelloApplication();
         m.changeScene("SignUp.fxml");
     }
