@@ -49,7 +49,14 @@ public class SignUp {
         if (checkAdmin(username.getText().toString())) {
             alreadyExists.setText("This user already exists");
             return;
+        } else if (username.getText().toString() == "") {
+            alreadyExists.setText("Username Empty");
+            return;
+        } else if (password.getText().toString() == "") {
+            alreadyExists.setText("Password Empty");
+            return;
         }
+
 
         newAdmin.put("username", username.getText().toString());
         newAdmin.put("password", password.getText().toString());

@@ -167,7 +167,7 @@ public class FurtherMenuTest {
         robot.clickOn("#updatedName");
         robot.write("abc");
         robot.clickOn("#updatedPrice");
-        robot.write("1.30");
+        robot.write("1.38");
         robot.clickOn("#updateItem");
 
         robot.clickOn("#updatedName");
