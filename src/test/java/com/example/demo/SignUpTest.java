@@ -72,6 +72,13 @@ public class SignUpTest {
         assertNotNull(buttonTester);
 
         robot.clickOn("#button1");
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.write("1");
+        robot.clickOn("#button1");
 
     }
 }
