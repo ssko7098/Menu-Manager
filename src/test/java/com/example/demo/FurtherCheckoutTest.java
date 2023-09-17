@@ -9,6 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,6 +24,8 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.util.WaitForAsyncUtils;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -58,7 +64,11 @@ public class FurtherCheckoutTest {
     }
 
     @Test
-    void goToNotAdmin(FxRobot robot) throws IOException {
+    void goToNotAdmin(FxRobot robot) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader = new FileReader("orders.json");
+        JSONObject obj = (JSONObject) jsonParser.parse(reader);
+
         Label notAdmin = robot.lookup("#notAdmin").queryAs(Label.class);
         robot.clickOn("#notAdmin");
         robot.clickOn("#cartButton");
@@ -69,12 +79,22 @@ public class FurtherCheckoutTest {
         //Setting the newStage to the Stage associated w/ the hello-view.fxml
         Stage newStage = (Stage) u.getScene().getWindow();
 
+        FileWriter file = new FileWriter("orders.json");
+        file.write(obj.toJSONString());
+        file.flush();
+
+
         //Test that the Stages are indeed different
         Assertions.assertNotEquals(stage, newStage);
     }
 
     @Test
-    void goToNotAdmin2(FxRobot robot) throws IOException {
+    void goToNotAdmin2(FxRobot robot) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader = new FileReader("orders.json");
+        JSONObject obj = (JSONObject) jsonParser.parse(reader);
+
+
         robot.clickOn("#notAdmin");
         robot.clickOn("#cartButton");
         robot.clickOn("#Payment");
@@ -95,6 +115,10 @@ public class FurtherCheckoutTest {
 
         //Setting the newStage to the Stage associated w/ the hello-view.fxml
         Stage newStage = (Stage) v.getScene().getWindow();
+
+        FileWriter file = new FileWriter("orders.json");
+        file.write(obj.toJSONString());
+        file.flush();
 
         //Test that the Stages are not different
         Assertions.assertEquals(oldStage, newStage);
