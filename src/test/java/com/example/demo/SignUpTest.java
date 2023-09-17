@@ -115,7 +115,7 @@ public class SignUpTest {
         FileWriter file = new FileWriter("admin.json");
         file.write(obj.toJSONString());
         file.flush();
-        
+
         TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
         Stage newStage = (Stage)userLogin.getScene().getWindow();
         Assertions.assertNotEquals(stage, newStage);
