@@ -17,6 +17,9 @@ Which is detailed further down in `insert link to section`.
 * Dim Khachumov `xxx`
 * Ryan Tanevski `xxx`
 
+## Running the Program
+- To run the program, use the command: "./gradlew clean run"
+- To see our test results, use the command "./gradlew test jacocoTestReport" and locate the jacoco report in build/reports/jacoco/test/html/index.html
 
 ## Login Details
 
