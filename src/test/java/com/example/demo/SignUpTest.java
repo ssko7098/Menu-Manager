@@ -80,5 +80,11 @@ public class SignUpTest {
         robot.write("1");
         robot.clickOn("#button1");
 
+        robot.clickOn("#username");
+        robot.eraseText(1);
+        robot.clickOn("#password");
+        robot.write("1234");
+        robot.clickOn("#showPassword");
+
     }
 }
