@@ -12,9 +12,9 @@ efficiently view the resturants current offerings, view order history, change th
 
 * Ethan Acevski `520406429`
 * Sebstian Skontos `520466010`
-* Alex Photios `xxx`
-* Dim Khachumov `xxx`
-* Ryan Tanevski `xxx`
+* Alex Photios `520454833`
+* Dmitry Khachumov `520442472`
+* Ryan Tanevski `520466098`
 
 ## Running the Program
 - To run the program, use the command: "./gradlew clean run"
