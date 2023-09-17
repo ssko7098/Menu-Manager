@@ -60,6 +60,10 @@ public class SignUpTest {
     }
     @Test
     void testingSignUp(FxRobot robot) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader = new FileReader("admin.json");
+        JSONArray obj = (JSONArray) jsonParser.parse(reader);
+
         robot.clickOn("#username");
         robot.write("admin");
         robot.clickOn("#password");
@@ -85,6 +89,10 @@ public class SignUpTest {
         robot.clickOn("#password");
         robot.write("1234");
         robot.clickOn("#showPassword");
+
+        FileWriter file = new FileWriter("admin.json");
+        file.write(obj.toJSONString());
+        file.flush();
 
     }
 }
