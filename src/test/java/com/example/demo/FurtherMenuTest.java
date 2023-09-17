@@ -125,7 +125,7 @@ public class FurtherMenuTest {
     }
 
     @Test
-    void createAdminMenuTest(FxRobot robot) throws TimeoutException, InterruptedException {
+    void menuItemTest(FxRobot robot) throws TimeoutException, InterruptedException {
 
         //Seting up the userLogin TextField to be able to get the robot to access it
         TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
