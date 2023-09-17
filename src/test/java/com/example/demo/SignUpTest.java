@@ -60,6 +60,10 @@ public class SignUpTest {
     }
     @Test
     void testingSignUp(FxRobot robot) throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader = new FileReader("admin.json");
+        JSONArray obj = (JSONArray) jsonParser.parse(reader);
+
         robot.clickOn("#username");
         robot.write("admin");
         robot.clickOn("#password");
@@ -79,6 +83,39 @@ public class SignUpTest {
         robot.clickOn("#username");
         robot.write("1");
         robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.eraseText(1);
+        robot.clickOn("#password");
+        robot.write("1234");
+        robot.clickOn("#showPassword");
+
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.eraseText(5);
+        robot.clickOn("#button1");
+
+        robot.clickOn("#username");
+        robot.write("testAdmin");
+        robot.clickOn("#password");
+        robot.write("5");
+        robot.clickOn("#button1");
+        robot.clickOn("#username");
+        robot.write("testAdmin");
+        robot.clickOn("#password");
+        robot.write("12345");
+        robot.clickOn("#button");
+        robot.clickOn("#logOut");
+
+        FileWriter file = new FileWriter("admin.json");
+        file.write(obj.toJSONString());
+        file.flush();
+
+
+        TextField userLogin = robot.lookup("#username").queryAs(TextField.class);
+        Stage newStage = (Stage)userLogin.getScene().getWindow();
+        Assertions.assertNotEquals(stage, newStage);
 
     }
 }
