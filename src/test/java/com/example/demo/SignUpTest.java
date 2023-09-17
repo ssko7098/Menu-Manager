@@ -51,11 +51,23 @@ public class SignUpTest {
     @Start
     public void start(Stage primaryStage) throws IOException {
         Stage stage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.resizableProperty();
         stage.setTitle("Menu Manager");
         stage.setScene(scene);
         stage.show();
+    }
+    @Test
+    void testingSignUp(FxRobot robot) throws IOException, ParseException {
+        robot.clickOn("#username");
+        robot.write("admin");
+        robot.clickOn("#password");
+        robot.write("1234");
+        robot.clickOn("#button");
+        robot.clickOn("#newAdminUserButton");
+        robot.clickOn("#backSignUpButton");
+        robot.clickOn("#newAdminUserButton");
+
     }
 }
